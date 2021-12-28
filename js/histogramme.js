@@ -12,7 +12,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         .range([height, 0])
 
 // append the svg object to the body of the page
-    const svg = d3.select("#histogram")
+    const svg = d3.select("#my_dataviz")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -21,19 +21,8 @@ document.addEventListener ("DOMContentLoaded", () => {
             `translate(${margin.left}, ${margin.top})`);
 
 // Read data
-    d3.csv("/data/operations.csv", (links) => {
-        console.log(links)
-        var libelle = links.columns[0];
-        var date = links.columns[1];
-        var montant = links.columns[2];
-        var categorie = links.columns[3];
-        stratify = d3.stratify()
-            .id(d => d[libelle])
-            .parentId(d => d[parent])
-            .date(d => d[date])
-        var root = stratify(links)
-        console.log(root)
-    }).then (r => {
-
-    });
+    d3.csv("/data/operations.csv").then (function (data) {
+        console.table(data)
+        console.log (data [0].libelle)
+    })
 })
