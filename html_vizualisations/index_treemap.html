@@ -4,7 +4,40 @@
     <title>Projet John Spendings Viz</title>
     <link rel="stylesheet" href="../css/style.css" />
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/utils.js"></script>
     <script src="../js/treemap.js"></script>
 </head>
+
+<div id="choix_comparaison">
+    <form>
+        <input type="radio" id="etudiants"
+               name="choix_comparaison" value="etudiants" checked>
+        <label for="etudiants">Etudiants</label>
+
+        <input type="radio" id="francais"
+               name="choix_comparaison" value="francais">
+        <label for="francais">Français</label>
+    </form>
+</div>
+
+<div id="choix_annee">
+    <form>
+        <input type="radio" id="2019"
+               name="choix_annee" value="2019">
+        <label for="2019">2019</label>
+
+        <input type="radio" id="2020"
+               name="choix_annee" value="2020">
+        <label for="2020">2020</label>
+
+        <input type="radio" id="2021"
+               name="choix_annee" value="2021" checked>
+        <label for="2021">2021</label>
+        <input type="radio" id="all"
+               name="choix_annee" value="all">
+        <label for="all">All</label>
+    </form>
+</div>
 
 <div id="treemap"></div>

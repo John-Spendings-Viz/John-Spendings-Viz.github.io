@@ -1,65 +1,109 @@
-document.addEventListener ("DOMContentLoaded", () => {
+function calculateTreeMap(annee) {
+    if (annee in data) {
+        let root = d3.stratify()
+            .id(function (d) {
+                return d.categorie;
+            })   // Name of the entity (column name is name in csv)
+            .parentId(function (d) {
+                return d.parent;
+            })   // Name of the parent (column name is parent in csv)
+            (data[annee]);
+        root.sum(function (d) {
+            return +d.somme
+        })   // Compute the numeric value for each entity
 
-    let svg = d3.select("#treemap")
-        .append("svg")
-        .attr("width", "100%")
-        .attr("height", "100%")
-        .append("g")
+        d3.treemap()
+            .size([Math.round(0.9 * parseFloat(d3.select("svg").style("width"))), Math.round(0.9 * parseFloat(d3.select("svg").style("height")))])
+            .padding(4)
+            (root)
+        return root
+    }
+    return undefined
+}
 
-    let color = d3
-        .scaleQuantize()
-        .range(["#006D2C", "#31a354", "#FFD700", "#ff7f00", "#FF0000"]);
+function drawRectTreeMap(comparaison, root, annee)
+{
+    let proportionComparison = comparaison === "etudiants" ? "proportionEtudiants" : "proportionFrancais"
+    let expenses = comparaison === "etudiants" ? annual_expenses_student:annual_expenses_french
+    expenses = annee === "all" ?expenses*(Object.keys(data).length-1):expenses
+    let total_expenses = root.value
 
+    d3.select("svg")
+        .selectAll("rect")
+        .data(root.leaves())
+        .join("rect")
+        .transition()
+        .delay(100)
+        .duration(1000)
+        .ease(d3.easeLinear)
+        .on('start',function(){ d3.select(this).style("opacity", "0.2")})
+        .attr('x', d => d.x0)
+        .attr('y', d => d.y0)
+        .attr('width', d => d.x1 - d.x0)
+        .attr('height', d => d.y1 - d.y0)
+        .style("stroke", "black")
+        .style("fill", d => color(
+            (d.data.somme - (expenses * d.data[proportionComparison] / 100)) /
+            (expenses * d.data[proportionComparison] / 100)))
+        .on('end',  function(){ d3.select(this).style("opacity", "1"); });
 
-    d3.csv("../data/repartition_categories.csv").then(function (repartition){
-        d3.csv("../data/operations.csv").then(function (operations){
-            cleaned_operations = operations.filter(d => d.categorie !== "");
-            // stratify the data: reformatting for d3.js
-            let nestedData = d3.rollups(
-                cleaned_operations,
-                xs => d3.sum(xs, x => x.montant).toFixed(2),
-                d => d.categorie
-            )
-                .map(([k, v]) => ({ categorie: k, parent:"Origin", value: v,
-                    proportionEtudiant: repartition.find(d=>d.Catégorie === k).Etudiants,
-                    proportionFrancais: repartition.find(d=>d.Catégorie === k).Français}))
-            nestedData.push({ categorie: "Origin", parent:"", value: "" })
+    d3.select("svg")
+        .selectAll("rect")
+        .on('mousemove', function (e, d) {
+        // on recupere la position de la souris,
+        // e est l'object event
+            let mousePosition = [e.x, e.y]
+            let proportions_expenses = (d.data.somme / total_expenses * 100)
+            let expenses_mean = (expenses*d.data[proportionComparison]/100)
+            let comparison = ((d.data.somme - expenses_mean) / expenses_mean * 100)
+            let most_expenses = annee !== "all"? months[d.data.somme_mois.indexOf(Math.max(...d.data.somme_mois))]: getMaxTuple(d.data.somme_annee)
+            let value_most_expenses = annee !== "all"? Math.max(...d.data.somme_mois):Math.max(...d.data.somme_annee.map(d=> d[1]))
 
-            const root = d3.stratify()
-                .id(function(d) { return d.categorie; })   // Name of the entity (column name is name in csv)
-                .parentId(function(d) { return d.parent; })   // Name of the parent (column name is parent in csv)
-                (nestedData);
-            root.sum(function(d) { return +d.value })   // Compute the numeric value for each entity
-
-            let total_expenses = root.value
-            color.domain([0, 2])
-
-            d3.treemap()
-                .size([Math.round(0.9*parseFloat(d3.select("svg").style("width"))), Math.round(0.9*parseFloat(d3.select("svg").style("height")))])
-                .padding(4)
-                (root)
-
-            svg
-                .selectAll("rect")
-                .data(root.leaves())
-                .join("rect")
-                .attr('x', function (d) { return d.x0; })
-                .attr('y', function (d) { return d.y0; })
-                .attr('width', function (d) { return d.x1 - d.x0; })
-                .attr('height', function (d) { return d.y1 - d.y0; })
-                .style("stroke", "black")
-                .style("fill", function (d) {return color(d.data.value/total_expenses/(d.data.proportionEtudiant/100))})
-
-            // and to add the text labels
-            svg
-                .selectAll("text")
-                .data(root.leaves())
-                .join("text")
-                .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
-                .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-                .text(function(d){ return d.data.categorie})
-                .attr("font-size", "15px")
-                .attr("fill", "white")
+            // on affiche le tooltip
+            d3.select("#tooltip").classed('hidden', false)
+                .attr('style', 'left:' + (mousePosition[0] + 15) +
+                    'px; top:' + (mousePosition[1] - 35) + 'px')
+                // on recupere le nom du département et le nombre d'hospitalisations associé
+                .html(`<h3>${d.data.categorie} : </h3><ul>
+                                        <li>Dépenses Totales : ${d.data.somme} €</li>
+                                        <li>Dépenses totales moyenne des ${comparaison === "etudiants" ? "étudiants" : "français"} : ${expenses_mean.toFixed(2)} €</li>
+                                        <li>Comparaison par rapport aux ${comparaison === "etudiants" ? "étudiants" : "français"} : 
+                                            ${comparison < 0 ? "" : "+"}${comparison.toFixed(1)} %</li>
+                                        <li>Proportion des dépenses : ${proportions_expenses.toFixed(1)} %</li>
+                                        <li>Proportion pour les ${comparaison === "etudiants" ? "étudiants" : "français"} : ${d.data[proportionComparison].toFixed(1)} %</li>
+                                        <li>${annee !== "all" ?"Mois le plus dépensier : ":"Année la plus dépensière : "} ${most_expenses} (${value_most_expenses} €)</li>
+                                        </ul>`)
         })
-    })
-})
+        .on('mouseout', function () {
+            // on cache le tooltip
+            d3.select("#tooltip").classed('hidden', true)
+        })
+}
+
+function drawLabelsTreeMap(root){
+    // and to add the text labels
+    d3.select("svg")
+        .selectAll("text")
+        .data(root.leaves())
+        .join("text")
+        .transition()
+        .delay(100)
+        .duration(1000)
+        .ease(d3.easeLinear)
+        .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)    // +10 to adjust position (more right)
+        .attr("y", d => d.y0 + (d.y1 - d.y0) / 2)   // +20 to adjust position (lower)
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .text(d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.categorie.length * 1.5) >= 12 ? d.data.categorie : "")
+        .attr("font-size", d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.categorie.length * 1.5))
+        .attr("fill", "white")
+}
+
+function updateTreeMap(annee, comparaison) {
+    let root = calculateTreeMap(annee)
+    if (root !== undefined){
+        d3.select("svg").selectAll("*").remove();
+        drawRectTreeMap(comparaison, root, annee)
+        drawLabelsTreeMap(root)
+    }
+}

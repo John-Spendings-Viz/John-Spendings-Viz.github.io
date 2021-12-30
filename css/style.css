@@ -11,3 +11,34 @@ html{
 body{
     height: 90%;
 }
+
+div.tooltip {
+    font-family: "Verdana";
+    color: #222;
+    background-color: #fff;
+    padding: .5em;
+    border-radius: 2px;
+    opacity: 0.9;
+    position: absolute;
+}
+
+input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+
+    border: 2px solid #999;
+    transition: 0.2s all linear;
+    margin-right: 5px;
+
+    position: relative;
+    top: 4px;
+}
+
+input:checked {
+    border: 6px solid black;
+}
