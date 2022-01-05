@@ -5,6 +5,7 @@ const annual_expenses_student = 10000
 const annual_expenses_french = 16600
 let currentYear = 2021
 let currentComparison = "etudiants"
+let currentCategorie = "alimentation"
 
 let color = d3
     .scaleQuantize()
@@ -21,6 +22,11 @@ function parseDate(dateString) {
 function updateCurrentComparison(comparison){
     currentComparison = comparison
 }
+
+function updateCurrentCategorie(categorie){
+    currentCategorie = categorie
+}
+
 
 function updateCurrentYear(year){
     currentYear = year
