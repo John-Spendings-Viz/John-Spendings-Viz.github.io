@@ -47,7 +47,6 @@ document.addEventListener ("DOMContentLoaded", () => {
             nestedData.push({categorie: "Origin", parent: "", somme: ""})
             data["all"] = nestedData
 
-
             let root = calculateTreeMap(currentYear)
             if (root !== undefined) {
                 drawRectTreeMap("etudiants", root, currentYear)
@@ -62,6 +61,8 @@ document.addEventListener ("DOMContentLoaded", () => {
                 updateCurrentYear(this.value)
                 updateTreeMap(currentYear, currentComparison)
             })
+
+            f()
         })
     })
 })

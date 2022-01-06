@@ -1,5 +1,6 @@
 function calculateTreeMap(annee) {
     if (annee in data) {
+        console.log(data)
         let root = d3.stratify()
             .id(function (d) {
                 return d.categorie;
