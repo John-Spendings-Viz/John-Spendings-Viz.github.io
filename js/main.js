@@ -2,8 +2,8 @@ document.addEventListener ("DOMContentLoaded", () => {
 
     d3.select("#treemap")
         .append("svg")
-        .attr("width", "100%")
-        .attr("height", "100%")
+        .attr("width", treemapWidth)
+        .attr("height", treemapHeight)
 
     d3.select("body")
         .append("div")
@@ -11,7 +11,7 @@ document.addEventListener ("DOMContentLoaded", () => {
         .attr("id", "tooltip")
 
     d3.csv("../data/repartition_categories.csv").then(function (repartition) {
-        d3.csv("../data/operations.csv").then(async function (operations) {
+        d3.csv("../data/operations.csv").then(function (operations) {
             cleaned_operations = operations.filter(d => d.categorie !== "");
             let grouped_data = d3.group(cleaned_operations, d => parseDate(d.date).getFullYear(), d => d.categorie, d => parseDate(d.date).getMonth())
             for (let annee of grouped_data) {
@@ -49,7 +49,7 @@ document.addEventListener ("DOMContentLoaded", () => {
 
             let root = calculateTreeMap(currentYear)
             if (root !== undefined) {
-                drawRectTreeMap("etudiants", root, currentYear)
+                drawRectTreeMap("students", root, currentYear)
                 drawLabelsTreeMap(root)
             }
             d3.selectAll("input[name='choix_comparaison']").on("change", function () {

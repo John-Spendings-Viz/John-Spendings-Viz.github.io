@@ -1,21 +1,23 @@
-var months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
     "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
 
 const annual_expenses_student = 10000
 const annual_expenses_french = 16600
 let currentYear = 2021
-let currentComparison = "etudiants"
-let currentCategorie = "alimentation"
+let currentComparison = "students"
+let currentCategory = "all"
+const treemapWidth = 600
+const treemapHeight = 400
 
 let color = d3
     .scaleQuantize()
-    .range(["#006D2C", "#31a354", "#FFD700", "#ff7f00", "#FF0000"]);
-color.domain([-1, 1])
+    .range(["#006D2C", "#31a354", "#FFD700", "#ff7f00", "#FF0000"])
+    .domain([-1, 1]);
 
 let data = {}
 
 function parseDate(dateString) {
-    const [dd, mm, yyyy] = dateString.split("/");
+    let [dd, mm, yyyy] = dateString.split("/");
     return new Date(`${yyyy}/${mm}/${dd}`);
 }
 
@@ -23,10 +25,9 @@ function updateCurrentComparison(comparison){
     currentComparison = comparison
 }
 
-function updateCurrentCategorie(categorie){
-    currentCategorie = categorie
+function updateCurrentCategory(category){
+    currentCategory = category
 }
-
 
 function updateCurrentYear(year){
     currentYear = year
