@@ -48,9 +48,9 @@ document.addEventListener ("DOMContentLoaded", () => {
             nestedData.push({category: "Origin", parent: ""})
             data["all"] = nestedData
 
-            let root = calculateTreeMap(currentYear)
+            let root = calculateTreeMap()
             if (root !== undefined) {
-                drawRectTreeMap("student", root, currentYear)
+                drawRectTreeMap(root)
                 drawLabelsTreeMap(root)
             }
             d3.selectAll("#option-year .option-choices > *").on("click", function () {
@@ -59,13 +59,13 @@ document.addEventListener ("DOMContentLoaded", () => {
                 updateCurrentYear(oldYear, newYear)
                 newYear = currentYear
                 updateSelectedYear (oldYear, newYear)
-                updateTreeMap(currentYear, currentComparison)
+                updateTreeMap()
             })
 
             d3.selectAll("#option-comparison .option-choices > *").on("click", function () {
                 updateSelectedComparison ()
                 updateCurrentComparison (this.id.split ("-") [2]) // c'est temporaire
-                updateTreeMap(currentYear, currentComparison)
+                updateTreeMap()
             })
         })
     })

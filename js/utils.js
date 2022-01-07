@@ -14,10 +14,14 @@ let currentCategory = "all"
 const treemapWidth = 600
 const treemapHeight = 400
 
-let color = d3
+let colorScale = d3
     .scaleQuantize()
-    .domain([-1, 1])
-    .range(["#006D2C", "#31a354", "#FFD700", "#ff7f00", "#FF0000"])
+    .domain([-0.7, 0.7])
+    .range(["#d7191c", "#fdae61", "#f1f175", "#9dcc4d", "#1a9641"].reverse())
+
+/*let colorScale = d3.scaleSequential()
+    .interpolator(d3.interpolateRdYlGn)
+    .domain([0.7, -0.7])*/
 
 let data = {}
 
