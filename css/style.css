@@ -136,3 +136,9 @@ input {
 #tooltip.hidden {
     display: none;
 }
+
+.treemap-legend {
+    fill: white;
+    text-shadow: 2px 2px 2px black;
+    text-anchor: middle;
+}

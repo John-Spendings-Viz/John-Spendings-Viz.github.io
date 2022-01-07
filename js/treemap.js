@@ -82,13 +82,11 @@ function drawLabelsTreeMap(root){
         .delay(100)
         .duration(1000)
         .ease(d3.easeLinear)
+        .attr ("class", "treemap-legend")
         .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)    // +10 to adjust position (more right)
         .attr("y", d => d.y0 + (d.y1 - d.y0) / 2)   // +20 to adjust position (lower)
-        .attr("text-anchor", "middle")
-        .attr("alignment-baseline", "middle")
         .text(d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.category.length * 1.5) >= 12 ? d.data.category : "")
         .attr("font-size", d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.category.length * 1.5))
-        .attr("fill", "white")
 }
 
 function updateTreeMap(annee, comparaison) {
