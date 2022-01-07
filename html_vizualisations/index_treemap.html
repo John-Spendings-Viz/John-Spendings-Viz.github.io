@@ -1,43 +1,38 @@
 <!DOCTYPE html>
-<head>
-    <meta charset="utf-8" />
-    <title>Projet John Spendings Viz</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/utils.js"></script>
-    <script src="../js/treemap.js"></script>
-</head>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Treemap</title>
+        <link rel="stylesheet" href="../css/style.css" />
+        <script src="../lib/d3-7.2.1.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/utils.js"></script>
+        <script src="../js/treemap.js"></script>
+    </head>
+    <body>
+        <div id="title">
+            <h1>Comparaison des dépenses de John avec la moyenne des étudiants et des Français</h1>
+        </div>
+        <div id="options">
+            <div id="option-year">
+                <div class="option-name">Année</div>
+                <div class="option-choices">
+                    <span id="option-year-2019" class="year-selected">2019</span>
+                    <span id="option-year-2020">2020</span>
+                    <span id="option-year-2021">2021</span>
+                </div>
+            </div>
+            <div id="option-comparison">
+                <div class="option-name">Comparaison</div>
+                <div class="option-choices">
+                    <img id="option-comparison-student" src="../img/student_option.png" height="32" class="comparison-selected" />
+                    <img id="option-comparison-french" src="../img/french_option.png" height="32" />
+                </div>
+            </div>
 
-<div id="choix_comparaison">
-    <form>
-        <input type="radio" id="etudiants"
-               name="choix_comparaison" value="etudiants" checked>
-        <label for="etudiants">Etudiants</label>
+        </div>
+        <div id="treemap"></div>
+        <div id="tooltip" class="tooltip hidden"></div>
+    </body>
+</html>
 
-        <input type="radio" id="francais"
-               name="choix_comparaison" value="francais">
-        <label for="francais">Français</label>
-    </form>
-</div>
-
-<div id="choix_annee">
-    <form>
-        <input type="radio" id="2019"
-               name="choix_annee" value="2019">
-        <label for="2019">2019</label>
-
-        <input type="radio" id="2020"
-               name="choix_annee" value="2020">
-        <label for="2020">2020</label>
-
-        <input type="radio" id="2021"
-               name="choix_annee" value="2021" checked>
-        <label for="2021">2021</label>
-        <input type="radio" id="all"
-               name="choix_annee" value="all">
-        <label for="all">All</label>
-    </form>
-</div>
-
-<div id="treemap"></div>

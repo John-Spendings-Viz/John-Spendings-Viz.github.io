@@ -1,18 +1,24 @@
 const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
-    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+const years = [2020, 2021]
 
-const annual_expenses_student = 10000
-const annual_expenses_french = 16600
-let currentYear = 2021
-let currentComparison = "students"
+const expensesByPopFile = "../data/expenses_by_population.csv"
+const johnExpensesFile = "../data/john_expenses.csv"
+const totalCategoryName = "Total (euros)"
+
+let annualExpensesStudent = 0
+let annualExpensesFrench = 0
+
+let currentYear = "2021"
+let currentComparison = "student"
 let currentCategory = "all"
 const treemapWidth = 600
 const treemapHeight = 400
 
 let color = d3
     .scaleQuantize()
+    .domain([-1, 1])
     .range(["#006D2C", "#31a354", "#FFD700", "#ff7f00", "#FF0000"])
-    .domain([-1, 1]);
 
 let data = {}
 

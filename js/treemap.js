@@ -1,17 +1,11 @@
-function calculateTreeMap(annee) {
-    if (annee in data) {
+function calculateTreeMap(year) {
+    if (year in data) {
         console.log(data)
         let root = d3.stratify()
-            .id(function (d) {
-                return d.categorie;
-            })   // Name of the entity (column name is name in csv)
-            .parentId(function (d) {
-                return d.parent;
-            })   // Name of the parent (column name is parent in csv)
-            (data[annee]);
-        root.sum(function (d) {
-            return +d.somme
-        })   // Compute the numeric value for each entity
+            .id(d => d.category)
+            .parentId (d => d.parent)
+            (data[year]);
+        root.sum(d => +d.totalExpenses)// Compute the numeric value for each entity
 
         d3.treemap()
             .size([Math.round(0.9 * parseFloat(d3.select("svg").style("width"))), Math.round(0.9 * parseFloat(d3.select("svg").style("height")))])
@@ -24,8 +18,8 @@ function calculateTreeMap(annee) {
 
 function drawRectTreeMap(comparaison, root, annee)
 {
-    let proportionComparison = comparaison === "etudiants" ? "proportionEtudiants" : "proportionFrancais"
-    let expenses = comparaison === "etudiants" ? annual_expenses_student:annual_expenses_french
+    let proportionComparison = comparaison === "student" ? "proportionStudent" : "proportionFrench"
+    let expenses = comparaison === "student" ? annualExpensesStudent:annualExpensesFrench
     expenses = annee === "all" ?expenses*(Object.keys(data).length-1):expenses
     let total_expenses = root.value
 
@@ -44,34 +38,32 @@ function drawRectTreeMap(comparaison, root, annee)
         .attr('height', d => d.y1 - d.y0)
         .style("stroke", "black")
         .style("fill", d => color(
-            (d.data.somme - (expenses * d.data[proportionComparison] / 100)) /
+            (d.data.totalExpenses - (expenses * d.data[proportionComparison] / 100)) /
             (expenses * d.data[proportionComparison] / 100)))
         .on('end',  function(){ d3.select(this).style("opacity", "1"); });
-
     d3.select("svg")
         .selectAll("rect")
         .on('mousemove', function (e, d) {
         // on recupere la position de la souris,
         // e est l'object event
             let mousePosition = [e.x, e.y]
-            let proportions_expenses = (d.data.somme / total_expenses * 100)
+            let proportions_expenses = (d.data.totalExpenses / total_expenses * 100)
             let expenses_mean = (expenses*d.data[proportionComparison]/100)
-            let comparison = ((d.data.somme - expenses_mean) / expenses_mean * 100)
-            let most_expenses = annee !== "all"? months[d.data.somme_mois.indexOf(Math.max(...d.data.somme_mois))]: getMaxTuple(d.data.somme_annee)
-            let value_most_expenses = annee !== "all"? Math.max(...d.data.somme_mois):Math.max(...d.data.somme_annee.map(d=> d[1]))
-
+            let comparison = ((d.data.totalExpenses - expenses_mean) / expenses_mean * 100)
+            let most_expenses = annee !== "all"? months[d.data.expensesByMonth.indexOf(Math.max(...d.data.expensesByMonth))]: getMaxTuple(d.data.totalExpensesByYear)
+            let value_most_expenses = annee !== "all"? Math.max(...d.data.expensesByMonth):Math.max(...d.data.totalExpensesByYear.map(d=> d[1]))
             // on affiche le tooltip
             d3.select("#tooltip").classed('hidden', false)
                 .attr('style', 'left:' + (mousePosition[0] + 15) +
                     'px; top:' + (mousePosition[1] - 35) + 'px')
-                // on recupere le nom du département et le nombre d'hospitalisations associé
-                .html(`<h3>${d.data.categorie} : </h3><ul>
-                                        <li>Dépenses Totales : ${d.data.somme} €</li>
-                                        <li>Dépenses totales moyenne des ${comparaison === "etudiants" ? "étudiants" : "français"} : ${expenses_mean.toFixed(2)} €</li>
-                                        <li>Comparaison par rapport aux ${comparaison === "etudiants" ? "étudiants" : "français"} : 
+                // on recupere le nom du département et le nombre d'hospitalisations associé // FIXME
+                .html(`<h3>${d.data.category} : </h3><ul>
+                                        <li>Dépenses Totales : ${d.data.totalExpenses} €</li>
+                                        <li>Dépenses totales moyenne des ${comparaison === "student" ? "étudiants" : "français"} : ${expenses_mean.toFixed(2)} €</li>
+                                        <li>Comparaison par rapport aux ${comparaison === "student" ? "étudiants" : "français"} : 
                                             ${comparison < 0 ? "" : "+"}${comparison.toFixed(1)} %</li>
                                         <li>Proportion des dépenses : ${proportions_expenses.toFixed(1)} %</li>
-                                        <li>Proportion pour les ${comparaison === "etudiants" ? "étudiants" : "français"} : ${d.data[proportionComparison].toFixed(1)} %</li>
+                                        <li>Proportion pour les ${comparaison === "student" ? "étudiants" : "français"} : ${d.data[proportionComparison].toFixed(1)} %</li>
                                         <li>${annee !== "all" ?"Mois le plus dépensier : ":"Année la plus dépensière : "} ${most_expenses} (${value_most_expenses} €)</li>
                                         </ul>`)
         })
@@ -95,8 +87,8 @@ function drawLabelsTreeMap(root){
         .attr("y", d => d.y0 + (d.y1 - d.y0) / 2)   // +20 to adjust position (lower)
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
-        .text(d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.categorie.length * 1.5) >= 12 ? d.data.categorie : "")
-        .attr("font-size", d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.categorie.length * 1.5))
+        .text(d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.category.length * 1.5) >= 12 ? d.data.category : "")
+        .attr("font-size", d => Math.min((d.y1 - d.y0)*0.75, (d.x1 - d.x0) / d.data.category.length * 1.5))
         .attr("fill", "white")
 }
 

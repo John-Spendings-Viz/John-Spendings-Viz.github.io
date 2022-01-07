@@ -1,18 +1,39 @@
 #treemap {
-    margin: 0 auto;
-    height: 80%;
-    width: 80%;
+    text-align: center;
 }
 
-html{
-    height: 100%;
+#treemap > rect {
+    padding: 4px;
 }
 
 body{
-    height: 90%;
+    font-family: "Georgia";
 }
 
-div.tooltip {
+#title {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#title h1 {
+    padding-bottom: 5px;
+    position: relative;
+}
+
+#title h1::before {
+    position: absolute;
+    content: "";
+    width: 89%;
+    height: 14px;
+    bottom: 5px;
+    transform: skew(-12deg) translateX(5px);
+    background: rgba(119, 113, 113, 0.17);
+    opacity: 0.7;
+    z-index: -1;
+}
+
+#tooltip {
+    font-size: 10pt;
     font-family: "Verdana";
     color: #222;
     background-color: #fff;
@@ -39,6 +60,75 @@ input {
     top: 4px;
 }
 
-input:checked {
-    border: 6px solid black;
+#options {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#options .option-name {
+    text-align: center;
+    margin-bottom: 5px;
+    /*display: none;*/
+}
+
+#options > #option-year {
+    margin: 0 auto; /* On centre l'option du choix de l'année. */
+}
+
+/* BOUTONS POUR SELECTIONNER L'ANNEE */
+#option-year > .option-choices > * {
+    font-size: 16px;
+    padding: 10px 10px;
+    border: 3px solid black;
+    float: left;
+    transition: 0.5s;
+}
+
+#option-year > .option-choices > *:not(:last-child) {
+    border-right: none; /* On enlève les doubles bordures. */
+}
+
+#option-year > .option-choices > *:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+#option-year > .option-choices > *:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+#option-year > .option-choices > *:hover:not(.year-selected) {
+    background: #616161;
+    border-color: #616161;
+    color: white;
+}
+
+#option-year .year-selected {
+    background: black;
+    color: white;
+}
+
+#option-comparison > .option-choices > *:not(.comparison-selected) {
+    opacity: 0.3;
+}
+
+#tooltip ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*#treemap rect:hover {
+    stroke: #646464 !important;
+    stroke-width: 3px;
+    stroke-dasharray: 2,2;
+    stroke-linejoin: round;
+    opacity: 0.5 !important;
+    transition: 0.5s;
+}*/
+
+#treemap rect:hover {
+    stroke: currentColor !important;
+    stroke-width: 3px;
+    stroke-linejoin: round;
+    opacity: 0.5 !important;
+    transition: 0.5s;
 }

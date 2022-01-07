@@ -1,55 +1,56 @@
 document.addEventListener ("DOMContentLoaded", () => {
-
     d3.select("#treemap")
         .append("svg")
         .attr("width", treemapWidth)
         .attr("height", treemapHeight)
 
-    d3.select("body")
-        .append("div")
-        .attr("class", "tooltip hidden")
-        .attr("id", "tooltip")
+    d3.csv(expensesByPopFile).then(function (expensesByPop) {
+        d3.csv(johnExpensesFile).then(function (johnExpenses) {
+            let cleanedJohnData = johnExpenses.filter(d => d.categorie !== "");
+            let groupedJohnData = d3.group (cleanedJohnData, d => parseDate(d.date).getFullYear(), d => d.categorie, d => parseDate(d.date).getMonth())
+            let groupedDataByPop = d3.index (expensesByPop, d => d.categorie)
 
-    d3.csv("../data/repartition_categories.csv").then(function (repartition) {
-        d3.csv("../data/operations.csv").then(function (operations) {
-            cleaned_operations = operations.filter(d => d.categorie !== "");
-            let grouped_data = d3.group(cleaned_operations, d => parseDate(d.date).getFullYear(), d => d.categorie, d => parseDate(d.date).getMonth())
-            for (let annee of grouped_data) {
+            annualExpensesStudent = parseFloat (groupedDataByPop.get (totalCategoryName).etudiants).toFixed (2)
+            annualExpensesFrench = parseFloat (groupedDataByPop.get (totalCategoryName).francais).toFixed (2)
+
+            for (let [year, dataYear] of groupedJohnData.entries ()) {
                 let nestedData = []
-                for (let category of annee[1]) {
-                    let sum_month = []
-                    for (let month = 0; month <= 11; month++) {
-                        sum_month.push((category[1].get(month) !== undefined ? d3.sum(category[1].get(month), x => x.montant) : 0).toFixed(2))
+                for (let [category, dataCategory] of dataYear.entries ()) {
+                    let sumExpensesByMonth = new Array (12).fill (0)
+                    for (let [month, dataMonth] of dataCategory.entries ()) {
+                        sumExpensesByMonth [month] = d3.sum(dataMonth, d => d.montant).toFixed(2)
                     }
                     nestedData.push({
-                        categorie: category[0],
+                        category,
                         parent: "Origin",
-                        somme: parseFloat(d3.sum(sum_month).toFixed(2)),
-                        somme_mois: sum_month.map(x => parseFloat(x)),
-                        proportionEtudiants: parseFloat(repartition.find(d => d.Catégorie === category[0]).Etudiants),
-                        proportionFrancais: parseFloat(repartition.find(d => d.Catégorie === category[0]).Français)
+                        totalExpenses: parseFloat(d3.sum(sumExpensesByMonth).toFixed(2)),
+                        expensesByMonth: sumExpensesByMonth.map (parseFloat),
+                        proportionStudent: parseFloat(groupedDataByPop.get (category).etudiants),
+                        proportionFrench: parseFloat(groupedDataByPop.get (category).francais)
                     })
                 }
-                nestedData.push({categorie: "Origin", parent: "", somme: ""})
-                data[annee[0]] = nestedData
+                nestedData.push({category: "Origin", parent: ""})
+                data[year] = nestedData
             }
-
-            nestedData = d3.rollups(
-                cleaned_operations,
-                xs => d3.sum(xs, x => x.montant).toFixed(2),
-                d => d.categorie, d=> parseDate(d.date).getFullYear()
+            let nestedData = d3.rollups(
+                cleanedJohnData,
+                dataByCategoryYear => d3.sum(dataByCategoryYear, d => d.montant).toFixed(2),
+                d => d.categorie, d => parseDate(d.date).getFullYear()
             )
-                .map(([category, somme]) => ({categorie: category, parent:"Origin", somme: d3.sum(somme, x=>x[1]).toFixed(2),
-                    somme_annee:somme.map(d=>[parseInt(d[0]), parseFloat(d[1])]),
-                    proportionEtudiants: parseFloat(repartition.find(d => d.Catégorie === category).Etudiants),
-                    proportionFrancais: parseFloat(repartition.find(d => d.Catégorie === category).Français)}
-                ))
-            nestedData.push({categorie: "Origin", parent: "", somme: ""})
+            nestedData = nestedData.map(([category, totalExpensesByYear]) => ({
+                category: category,
+                parent:"Origin",
+                totalExpenses: d3.sum(totalExpensesByYear, d => d[1]).toFixed(2),
+                totalExpensesByYear:totalExpensesByYear,
+                proportionStudent: parseFloat(groupedDataByPop.get (category).etudiants),
+                proportionFrench: parseFloat(groupedDataByPop.get (category).francais)
+            }))
+            nestedData.push({category: "Origin", parent: ""})
             data["all"] = nestedData
 
             let root = calculateTreeMap(currentYear)
             if (root !== undefined) {
-                drawRectTreeMap("students", root, currentYear)
+                drawRectTreeMap("student", root, currentYear)
                 drawLabelsTreeMap(root)
             }
             d3.selectAll("input[name='choix_comparaison']").on("change", function () {
@@ -61,8 +62,6 @@ document.addEventListener ("DOMContentLoaded", () => {
                 updateCurrentYear(this.value)
                 updateTreeMap(currentYear, currentComparison)
             })
-
-            f()
         })
     })
 })
