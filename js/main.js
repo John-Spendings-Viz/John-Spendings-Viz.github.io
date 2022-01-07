@@ -53,13 +53,18 @@ document.addEventListener ("DOMContentLoaded", () => {
                 drawRectTreeMap("student", root, currentYear)
                 drawLabelsTreeMap(root)
             }
-            d3.selectAll("input[name='choix_comparaison']").on("change", function () {
-                updateCurrentComparison(this.value)
+            d3.selectAll("#option-year .option-choices > *").on("click", function () {
+                let oldYear = currentYear
+                let newYear = +this.textContent
+                updateCurrentYear(oldYear, newYear)
+                newYear = currentYear
+                updateSelectedYear (oldYear, newYear)
                 updateTreeMap(currentYear, currentComparison)
             })
 
-            d3.selectAll("input[name='choix_annee']").on("change", function () {
-                updateCurrentYear(this.value)
+            d3.selectAll("#option-comparison .option-choices > *").on("click", function () {
+                updateSelectedComparison ()
+                updateCurrentComparison (this.id.split ("-") [2]) // c'est temporaire
                 updateTreeMap(currentYear, currentComparison)
             })
         })

@@ -1,14 +1,13 @@
 function calculateTreeMap(year) {
     if (year in data) {
-        console.log(data)
         let root = d3.stratify()
             .id(d => d.category)
             .parentId (d => d.parent)
             (data[year]);
-        root.sum(d => +d.totalExpenses)// Compute the numeric value for each entity
+        root.sum(d => +d.totalExpenses)
 
         d3.treemap()
-            .size([Math.round(0.9 * parseFloat(d3.select("svg").style("width"))), Math.round(0.9 * parseFloat(d3.select("svg").style("height")))])
+            .size([Math.round(0.9 * treemapWidth), Math.round(0.9 * treemapHeight)])
             .padding(4)
             (root)
         return root
@@ -50,8 +49,8 @@ function drawRectTreeMap(comparaison, root, annee)
             let proportions_expenses = (d.data.totalExpenses / total_expenses * 100)
             let expenses_mean = (expenses*d.data[proportionComparison]/100)
             let comparison = ((d.data.totalExpenses - expenses_mean) / expenses_mean * 100)
-            let most_expenses = annee !== "all"? months[d.data.expensesByMonth.indexOf(Math.max(...d.data.expensesByMonth))]: getMaxTuple(d.data.totalExpensesByYear)
-            let value_most_expenses = annee !== "all"? Math.max(...d.data.expensesByMonth):Math.max(...d.data.totalExpensesByYear.map(d=> d[1]))
+            let most_expenses = annee !== "all"?months [d3.greatestIndex (d.data.expensesByMonth)]: getMaxTuple(d.data.totalExpensesByYear)
+            let value_most_expenses = annee !== "all"? d3.max (d.data.expensesByMonth):Math.max(...d.data.totalExpensesByYear.map(d=> d[1]))
             // on affiche le tooltip
             d3.select("#tooltip").classed('hidden', false)
                 .attr('style', 'left:' + (mousePosition[0] + 15) +
