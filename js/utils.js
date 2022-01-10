@@ -8,9 +8,9 @@ const totalCategoryName = "Total (euros)"
 let annualExpensesStudent = 0
 let annualExpensesFrench = 0
 
-let currentYear = "all"
+let currentYear = "2021"
 let currentComparison = "student"
-let currentCategory = "Alimentation"
+let currentCategory = "all"
 const treemapWidth = 600
 const treemapHeight = 400
 
@@ -64,4 +64,19 @@ function getMaxTuple(listTuple){
         }
     }
     return keyMax
+}
+
+function buildDataByMonthJohn(year) {
+
+    let array = []
+    for (let i of [0,1,2,3,4,5,6,7,8,9,10,11]) {
+        let sum = 0;
+        for (let o of data[year]) {
+            if (o.category !== "Origin") {
+                sum += o.expensesByMonth[i]
+            }
+        }
+        array.push(sum)
+    }
+    return array
 }

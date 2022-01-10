@@ -1,27 +1,26 @@
 function f(){
 
-    //console.log(data[2020].find(d=> d.category === currentCategory))
-    const databyMonth = data[2020].find(d=> d.category === currentCategory).expensesByMonth;
-    //let proportionComparison = currentComparison === "student" ? "proportionStudent" : "proportionFrench"
+    console.log(data[2020])
     let comparaison = currentComparison === "student" ? "Etudiants":"Français"
     let expenses = currentComparison === "student" ? annualExpensesStudent:annualExpensesFrench
-    let proportion = currentComparison === "student" ?
-        data[2020].find(d=> d.category === currentCategory).proportionStudent :
-        data[2020].find(d=> d.category === currentCategory).proportionFrench
+    let proportion = 100
+    let databyMonth = []
+
+    // cas 1 : categorie == all
+    if (currentCategory === "all") {
+        databyMonth = buildDataByMonthJohn(currentYear);
+    }
+
+    //cas 2 : categorie != all
+    else {
+        databyMonth = data[2020].find(d=> d.category === currentCategory).expensesByMonth;
+        proportion = currentComparison === "student" ?
+            data[2020].find(d=> d.category === currentCategory).proportionStudent :
+            data[2020].find(d=> d.category === currentCategory).proportionFrench
+    }
     let expenses_month = (expenses * (proportion / 100)) / 12
     var maximum = Math.max.apply(null, databyMonth);
-    console.log(data[2020])
-    console.log(expenses_month)
 
-
-    //expenses = currentYear === "all" ?expenses*(Object.keys(data).length-1):expenses
-    //console.log(data[2020].find(d=> d.category === currentCategory).proportionFrench)
-
-    const data2 = [
-        { name: 'Simon', score: 80},
-        { name: 'Mary', score: 90},
-        { name: 'John', score: 60}
-    ]
 
     const width = 1000;
     const height = 400;
