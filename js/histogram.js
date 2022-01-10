@@ -1,4 +1,4 @@
-function f(){
+function drawHistogram(){
 
     console.log(data[2020])
     let comparaison = currentComparison === "student" ? "Etudiants":"Français"
@@ -26,7 +26,8 @@ function f(){
     const height = 400;
     const margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
-    const svg = d3.select('#histogram')
+    //const svg = d3.select('#histogram')
+    d3.select("#histogram")
         .append('svg')
         .attr('height', height - margin.top - margin.bottom)
         .attr('width', width - margin.left - margin.right)
@@ -41,7 +42,8 @@ function f(){
         .domain([0,maximum])
         .range([height - margin.bottom, margin.top]);
 
-    svg
+    // Bar Chart
+    d3.select("svg")
         .append('g')
         .selectAll('rect')
         .data(databyMonth)
@@ -50,21 +52,35 @@ function f(){
         .attr('y', (d) => y(d))
         .attr('height', (d) => y(0) - y(d))
         .attr('width', x.bandwidth())
+        .style("stroke", "black")
         .style("fill", d => colorScale(
             (d - expenses_month) / expenses_month
             )
-        );
+        )
 
-    svg
+    // Label bar
+    d3.select("svg")
+        .selectAll('g')
+        .selectAll("text")
+        .data(databyMonth)
+        .join("text")
+        .attr('x', (d,i) => x(i) + 15)
+        .attr('y', (d) => y(d) - 10)
+        .text((d) => d.toFixed(0))
+        .attr("font-size", 20)
+
+    // Ligne moyenne
+    d3.select("svg")
         .selectAll('g')
         .append('rect')
-        .attr('x', x(0))
+        .attr('x', x(0) - 8)
         .attr('y', y(expenses_month))
         .attr('height', 4)
         .attr('width', width - margin.left - margin.right)
         .attr("fill", 'royalblue')
 
-    svg
+    // Label moyenne
+    d3.select("svg")
         .selectAll('g')
         .append('text')
         .attr('x', x(11) + 90)
@@ -72,6 +88,7 @@ function f(){
         .attr('height', 4)
         .attr('width', width - margin.left - margin.right)
         .text(comparaison)
+
 
 
     function xAxis(g) {
@@ -87,9 +104,13 @@ function f(){
 
     }
 
-    svg.append('g').call(xAxis)
-    svg.append('g').call(yAxis)
-    svg.node();
+    d3.select("svg").append('g').call(xAxis)
+    d3.select("svg").append('g').call(yAxis)
+    d3.select("svg").node();
 
+}
 
+function updateHistogram() {
+    d3.select("svg").selectAll("*").remove();
+    drawHistogram()
 }

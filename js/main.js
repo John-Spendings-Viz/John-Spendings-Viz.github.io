@@ -60,14 +60,16 @@ document.addEventListener ("DOMContentLoaded", () => {
             //     newYear = currentYear
             //     updateSelectedYear (oldYear, newYear)
             //     updateTreeMap()
+            //     updateHistogram()
             // })
             //
             // d3.selectAll("#option-comparison .option-choices > *").on("click", function () {
             //     updateSelectedComparison ()
             //     updateCurrentComparison (this.id.split ("-") [2]) // c'est temporaire
             //     updateTreeMap()
+            //     updateHistogram()
             // })
-            f()
+            drawHistogram()
         })
     })
 })
