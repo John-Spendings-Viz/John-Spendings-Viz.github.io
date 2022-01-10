@@ -48,25 +48,26 @@ document.addEventListener ("DOMContentLoaded", () => {
             nestedData.push({category: "Origin", parent: ""})
             data["all"] = nestedData
 
-            let root = calculateTreeMap()
-            if (root !== undefined) {
-                drawRectTreeMap(root)
-                drawLabelsTreeMap(root)
-            }
-            d3.selectAll("#option-year .option-choices > *").on("click", function () {
-                let oldYear = currentYear
-                let newYear = +this.textContent
-                updateCurrentYear(oldYear, newYear)
-                newYear = currentYear
-                updateSelectedYear (oldYear, newYear)
-                updateTreeMap()
-            })
-
-            d3.selectAll("#option-comparison .option-choices > *").on("click", function () {
-                updateSelectedComparison ()
-                updateCurrentComparison (this.id.split ("-") [2]) // c'est temporaire
-                updateTreeMap()
-            })
+            // let root = calculateTreeMap()
+            // if (root !== undefined) {
+            //     drawRectTreeMap(root)
+            //     drawLabelsTreeMap(root)
+            // }
+            // d3.selectAll("#option-year .option-choices > *").on("click", function () {
+            //     let oldYear = currentYear
+            //     let newYear = +this.textContent
+            //     updateCurrentYear(oldYear, newYear)
+            //     newYear = currentYear
+            //     updateSelectedYear (oldYear, newYear)
+            //     updateTreeMap()
+            // })
+            //
+            // d3.selectAll("#option-comparison .option-choices > *").on("click", function () {
+            //     updateSelectedComparison ()
+            //     updateCurrentComparison (this.id.split ("-") [2]) // c'est temporaire
+            //     updateTreeMap()
+            // })
+            f()
         })
     })
 })
