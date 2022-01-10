@@ -10,7 +10,7 @@ let annualExpensesFrench = 0
 
 let currentYear = "all"
 let currentComparison = "student"
-let currentCategory = "all"
+let currentCategory = "Alimentation"
 const treemapWidth = 600
 const treemapHeight = 400
 
