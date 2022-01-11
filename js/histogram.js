@@ -1,7 +1,7 @@
 function drawHistogram() {
 
-    const Width = 1200;
-    const Height = 1000;
+    const Width = 1150;
+    const Height = 700;
     const Margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
     let container = d3.select('#histogram')
@@ -19,8 +19,8 @@ function drawHistogram() {
         .attr('width', Width - Margin.left - Margin.right)
         // .attr('viewBox', [0,0, width, height])
         .each(function(d) {
-            const width = 1100;
-            const height = currentYear === 'all' ? 400:800;
+            const width = 1050;
+            const height = currentYear === 'all' ? 350:600;
             const margin = { top: 50, bottom: 50, left: 50, right: 50 };
 
             let comparaison = currentComparison === "student" ? "Etudiants":"Français"

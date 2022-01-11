@@ -1,26 +1,68 @@
-#treemap {
-    text-align: center;
+/* Style général */
+:root {
+    --navbar-height: 50px;
+}
+
+body{
+    font-family: "Roboto";
+    margin: 0;
+}
+
+.page-container {
+    padding: var(--navbar-height);
+    height: 100vh;
+}
+
+#visualisations {
+    display: flex;
+}
+
+/* Navbar */
+#navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    position: fixed;
+    background: linear-gradient(to left,#8c1919, #4d2c2c);
+}
+
+#navbar .navbar-items {
+    list-style: none;
+    display: flex;
+    justify-content: end;
+}
+
+#navbar #navbar-title {
+    margin-right: auto;
+}
+
+#navbar .navbar-items > * {
+    margin-right: 10px;
+}
+
+#navbar .navbar-items * {
+    color: white;
+    text-decoration: none;
+}
+
+#navbar .navbar-items > *:hover:not(#navbar-title) {
+    border-bottom: solid red 3px;
 }
 
 #treemap > rect {
     padding: 4px;
 }
 
-body{
-    font-family: "Georgia";
-}
-
-#title {
+.title {
     margin: 0 auto;
     text-align: center;
 }
 
-#title h1 {
+.title h1 {
     padding-bottom: 5px;
     position: relative;
 }
 
-#title h1::before {
+.title h1::before {
     position: absolute;
     content: "";
     width: 89%;
@@ -62,21 +104,20 @@ input {
 
 #options {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
 
+#options > * {
+    display: flex;
+}
+
 #options .option-name {
-    text-align: center;
-    margin-bottom: 5px;
-    /*display: none;*/
+    line-height: 40px; /* centre verticalement les titre */
+    padding-right: 10px;
 }
 
-#options > #option-year {
-    margin: 0 auto; /* On centre l'option du choix de l'année. */
-}
-
-/* BOUTONS POUR SELECTIONNER L'ANNEE */
-#option-year > .option-choices > * {
+#options .option-choices > * {
     font-size: 16px;
     padding: 10px 10px;
     border: 3px solid black;
@@ -84,31 +125,27 @@ input {
     transition: 0.5s;
 }
 
-#option-year > .option-choices > *:not(:last-child) {
+#options .option-choices > *:not(:last-child) {
     border-right: none; /* On enlève les doubles bordures. */
 }
 
-#option-year > .option-choices > *:first-child {
+#options .option-choices > *:first-child {
     border-radius: 10px 0 0 10px;
 }
 
-#option-year > .option-choices > *:last-child {
+#options .option-choices > *:last-child {
     border-radius: 0 10px 10px 0;
 }
 
-#option-year > .option-choices > *:hover:not(.year-selected) {
+#options .option-choices > *:hover:not(.option-selected) {
     background: #616161;
     border-color: #616161;
     color: white;
 }
 
-#option-year .year-selected {
+#options .option-selected {
     background: black;
     color: white;
-}
-
-#option-comparison > .option-choices > *:not(.comparison-selected) {
-    opacity: 0.3;
 }
 
 #tooltip ul {
@@ -141,12 +178,11 @@ input {
     fill: white;
     text-shadow: 2px 2px 2px black;
     text-anchor: middle;
-    alignment-baseline: baseline;
 }
 
 .treemap-legend-comparisons {
     fill: white;
     text-shadow: 2px 2px 2px black;
     text-anchor: middle;
-    alignment-baseline: hanging;
+    dominant-baseline: hanging;
 }

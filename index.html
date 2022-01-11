@@ -2,45 +2,63 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>Projet John Spendings Viz</title>
+		<title>Comment optimiser les dépenses de John ?</title>
+		<link rel="stylesheet" href="lib/aos/aos.css" />
 		<link rel="stylesheet" href="css/style.css" />
-		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<script src="lib/aos/aos.js"></script>
+		<script src="lib/d3-7.2.1.min.js"></script>
+		<script src="js/main.js"></script>
 		<script src="js/utils.js"></script>
+		<script src="js/treemap.js"></script>
+		<script src="js/histogram.js"></script>
 	</head>
-
 	<body>
-		<header>
-			<h1>
-				Bienvenue sur le projet John Spendings Viz !
-			</h1>
-			<h2>
-				Le développement est actuellement en cours,
-				revenez plus tard pour voir notre progression  !
-			</h2>
-		</header>
+		<nav id="navbar">
+			<ul class="navbar-items">
+				<li id="navbar-title">Les dépenses de John</li>
+				<li><a href="#home">Accueil</a></li>
+				<li><a href="#visualisations">Visualisations</a></li>
+				<li><a href="#about">À propos</a></li>
+			</ul>
+		</nav>
+		<div id="home" class="page-container">
+			<div id="left"><img src="img/john.png" /></div>
+		</div>
+		<div id="visualisations" class="page-container">
+			<div id="treemap-container">
+				<div class="title">
+					<h1>Comparaison des dépenses de John avec la moyenne des étudiants et des Français</h1>
+				</div>
+				<div id="options">
+					<div id="option-year">
+						<span class="option-name">Année de référence :</span>
+						<div class="option-choices">
+							<span id="option-year-2020">2020</span>
+							<span id="option-year-2021">2021</span>
+						</div>
+					</div>
+					<div id="option-comparison">
+						<span class="option-name">Comparaison :</span>
+						<div class="option-choices">
+							<span id="option-comparison-student" class="option-selected">Étudiants</span>
+							<span id="option-comparison-french">Français</span>
+						</div>
+					</div>
 
-		<!-- Create a div where the graph will take place -->
-		<div id="my_dataviz"></div>
-		<div id="esquisse1">
-			<img
-				 src="/conception/esquisses/bestof/esquisse_1.jpg"
-				 height = "400"
-				 width = "600"
-			>
+				</div>
+				<div id="treemap"></div>
+				<div id="infos"></div>
+			</div>
+			<div id="histogram-container">
+				<div class="title">
+					<h1>Evolution des dépenses de John au cours de l'année</h1>
+				</div>
+				<div id="histogram"></div>
+			</div>
 		</div>
-		<div id="esquisse2">
-			<img
-				 src="/conception/esquisses/bestof/esquisse_2.jpg"
-				 height = "400"
-				 width = "600"
-			>
+		<div id="about" class="page-container">
+			<img src="img/john.png" />
 		</div>
-		<div id="esquisse3">
-			<img
-					src="/conception/esquisses/bestof/esquisse_3.jpg"
-					height = "400"
-					width = "600"
-			>
-		</div>
+		<div id="tooltip" class="tooltip hidden"></div>
 	</body>
 </html>

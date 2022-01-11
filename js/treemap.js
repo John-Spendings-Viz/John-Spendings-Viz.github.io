@@ -23,7 +23,8 @@ function drawRectTreeMap(root)
     let total_expenses = root.value
 
 
-    d3.select("svg")
+    d3.select ("#treemap")
+        .select ("svg")
         .selectAll("g")
         .data(root.leaves())
         .join("g")
@@ -42,9 +43,14 @@ function drawRectTreeMap(root)
                 (d.data.totalExpenses - (expenses * d.data[proportionComparison] / 100)) /
                 (expenses * d.data[proportionComparison] / 100))
         )
-        .on('end',  function(){ d3.select(this).style("opacity", "1"); });
-    d3.select("svg")
+        .on('end',  function(){ d3.select(this).style("opacity", "1"); })
+    d3.select ("#treemap")
+        .select ("svg")
         .selectAll("g")
+        .on("click", function (e, d) {
+            updateCurrentCategory (d.data.category)
+            updateHistogram()
+        })
         .on('mousemove', function (e, d) {
         // on recupere la position de la souris,
         // e est l'object event
@@ -81,7 +87,8 @@ function drawLabelsTreeMap(root){
         .range([8, 0.8*d3.max(root, d=> (d.x1-d.x0)/d3.max(root, d=> d.data.category.length))]);
 
     // and to add the text labels
-    d3.select("svg")
+    d3.select ("#treemap")
+        .select ("svg")
         .selectAll("g")
         .data(root.leaves())
         .join("g")
@@ -146,7 +153,7 @@ function drawLabelsTreeMap(root){
 function updateTreeMap() {
     let root = calculateTreeMap()
     if (root !== undefined){
-        d3.select("svg").selectAll("*").remove();
+        d3.select("#treemap").select("svg").selectAll("*").remove();
         drawRectTreeMap(root)
         drawLabelsTreeMap(root)
     }
