@@ -38,7 +38,6 @@ function drawRectTreeMap(root)
         .attr('y', d => d.y0)
         .attr('width', d => d.x1 - d.x0)
         .attr('height', d => d.y1 - d.y0)
-        .style("stroke", "black")
         .style("fill", d => colorScale(
                 (d.data.totalExpenses - (expenses * d.data[proportionComparison] / 100)) /
                 (expenses * d.data[proportionComparison] / 100))
@@ -48,7 +47,9 @@ function drawRectTreeMap(root)
         .select ("svg")
         .selectAll("g")
         .on("click", function (e, d) {
+            let oldCategory = currentCategory
             updateCurrentCategory (d.data.category)
+            updateSelectedCategory (this.children [0], oldCategory)
             updateHistogram()
         })
         .on('mousemove', function (e, d) {
@@ -117,7 +118,7 @@ function drawLabelsTreeMap(root){
             }
         })
         .attr("font-size", d=> textScale(d.data.totalExpenses))
-        .style("alignment-baseline", d=> d.y1 - d.y0 > 3* textScale(d.data.totalExpenses) ?"baseline":"middle")
+        .style("dominant-baseline", d=> d.y1 - d.y0 > 3* textScale(d.data.totalExpenses) ?"baseline":"middle")
 
     d3.selectAll("g g")
         .data(root.leaves())
@@ -159,3 +160,4 @@ function updateTreeMap() {
     }
     return root
 }
+

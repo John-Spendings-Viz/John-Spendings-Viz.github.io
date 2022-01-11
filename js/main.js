@@ -56,9 +56,8 @@ document.addEventListener ("DOMContentLoaded", () => {
             d3.selectAll("#option-year .option-choices > *").on("click", function () {
                 let oldYear = currentYear
                 let newYear = +this.textContent
-                updateCurrentYear(oldYear, newYear)
-                newYear = currentYear
-                updateSelectedYear (oldYear, newYear)
+                updateCurrentYear(newYear)
+                updateSelectedYear(oldYear)
                 updateTreeMap()
                 updateHistogram()
             })

@@ -34,26 +34,44 @@ function updateCurrentComparison(comparison){
     currentComparison = comparison
 }
 
-function updateCurrentCategory(category){
-    currentCategory = category
+function updateCurrentCategory (newCategory){
+    if (newCategory === currentCategory) {
+        currentCategory = "all"
+    } else {
+        currentCategory = newCategory
+    }
 }
 
-function updateCurrentYear (oldYear, newYear){
-    if (oldYear === newYear) {
+function updateCurrentYear (newYear) {
+    if (currentYear === newYear) {
         currentYear = "all"
     } else {
         currentYear = newYear
     }
 }
 
-function updateSelectedYear (oldYear, newYear) {
+function updateSelectedYear (oldYear) {
     if (oldYear !== "all") document.querySelector ("#option-year-" + oldYear).classList.toggle ("option-selected")
-    if (newYear !== "all") document.querySelector ("#option-year-" + newYear).classList.toggle ("option-selected")
+    if (currentYear !== "all") document.querySelector ("#option-year-" + currentYear).classList.toggle ("option-selected")
 }
 
 function updateSelectedComparison () {
     document.querySelectorAll ("#option-comparison .option-choices > *").forEach (e => e.classList.toggle ("option-selected"))
 }
+
+function updateSelectedCategory (rect, oldCategory) {
+    if (oldCategory !== "all") {
+        document.querySelector ("#treemap rect.category-selected").classList.remove ("category-selected")
+        rect.classList.remove ("category-not-selected")
+    }
+    if (currentCategory !== "all") {
+        rect.classList.add ("category-selected")
+        document.querySelectorAll ("#treemap rect:not(.category-selected)").forEach (e => e.classList.add ("category-not-selected"))
+    } else {
+        document.querySelectorAll ("#treemap rect").forEach (e => e.classList.remove ("category-not-selected"))
+    }
+}
+
 function getMaxTuple(listTuple){
     let max = 0
     let keyMax = undefined
@@ -69,7 +87,7 @@ function getMaxTuple(listTuple){
 function buildDataByMonthJohn(year) {
 
     let array = []
-    for (let i of [0,1,2,3,4,5,6,7,8,9,10,11]) {
+    for (let i = 0; i <= 11; i++) {
         let sum = 0;
         for (let o of data[year]) {
             if (o.category !== "Origin") {

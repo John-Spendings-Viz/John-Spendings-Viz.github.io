@@ -153,19 +153,20 @@ input {
     padding: 0;
 }
 
-/*#treemap rect:hover {
-    stroke: #646464 !important;
-    stroke-width: 3px;
-    stroke-dasharray: 2,2;
-    stroke-linejoin: round;
-    opacity: 0.5 !important;
-    transition: 0.5s;
-}*/
+#treemap rect {
+    stroke: black;
+}
 
-#treemap g:hover rect {
-    stroke: currentColor !important;
+#treemap rect.category-selected {
+    opacity: 1;
+}
+
+#treemap rect.category-not-selected {
+    opacity: 0.2 !important;
+}
+
+#treemap g:hover rect:not(.category-selected) {
     stroke-width: 3px;
-    stroke-linejoin: round;
     opacity: 0.5 !important;
     transition: 0.5s;
 }
