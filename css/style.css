@@ -1,11 +1,14 @@
 /* Style général */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
 :root {
     --navbar-height: 50px;
 }
 
 body{
-    font-family: "Tahoma";
+    font-family: "Roboto";
     margin: 0;
+    z-index: -999
 }
 
 .page-container {
@@ -15,7 +18,8 @@ body{
 
 #visualisations {
     position: relative;
-
+    display: flex;
+    justify-content: space-between;
 }
 
 /* Navbar */
@@ -191,19 +195,34 @@ body{
 }
 
 /* Home */
-#home > * {
+#home {
     display: flex;
+    background: black;
+    color: white;
 }
 
 #home-john {
     padding-top: 30px;
     width: 30%;
+    filter: drop-shadow(15px 10px 4px gray);
 }
 
-/* Responsiveness */
-@media screen {
-    #visualisations {
-        display: flex;
-        justify-content: space-between;
-    }
+#home-details {
+    width: 50%;
+}
+
+#home-details-title {
+    position: relative;
+    font-size: 54px;
+}
+
+#home-details-title em::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 28%;
+    top: auto;
+    bottom: 0;
+    background-color: blue;
+    font-weight: bold;
 }

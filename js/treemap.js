@@ -49,7 +49,9 @@ function drawRectTreeMap(root)
         .select ("svg")
         .selectAll("g")
         .on("click", function (e, d) {
+            let oldCategory = currentCategory
             updateCurrentCategory (d.data.category)
+            updateSelectedCategory (this.children [0], oldCategory)
             updateHistogram()
         })
         .on('mousemove', function (e, d) {
@@ -64,9 +66,9 @@ function drawRectTreeMap(root)
             // on affiche le tooltip
             d3.select("#tooltip").classed('hidden', d3.select(this).select("g").select(".treemap-legend-category").html() !== "")
                 .attr('style', 'left:' + (mousePosition[0] + 15) +
-                    'px; top:' + (mousePosition[1] - 15) + 'px')
-                .html(`<center>${d.data.category} :</center>${d.data.totalExpenses}  (    
-                           ${comparison < 0 ? "" : "+"}${comparison.toFixed()} %)`)
+                    'px; top:' + (mousePosition[1] + 190) + 'px')
+                .html(`<span style="text-align: center;">${d.data.category} :</span><br /> 
+                        ${d.data.totalExpenses}  (${comparison < 0 ? "" : "+"}${comparison.toFixed()} %)`)
         })
         .on('mouseout', function () {
             // on cache le tooltip
@@ -133,7 +135,7 @@ function drawLabelsTreeMap(root){
             else{
                 return d.y0 + (d.y1 - d.y0) / 2
             }
-        })   // +20 to adjust position (lower)
+        })
         .text(d => {
             if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)
                 && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0){
