@@ -8,7 +8,6 @@
 body{
     font-family: "Roboto";
     margin: 0;
-    z-index: -999
 }
 
 .page-container {
@@ -197,32 +196,61 @@ body{
 /* Home */
 #home {
     display: flex;
-    background: black;
+    background: #282727;
     color: white;
 }
 
 #home-john {
     padding-top: 30px;
+    padding-left: 20px;
     width: 30%;
-    filter: drop-shadow(15px 10px 4px gray);
+    filter: drop-shadow(5px 5px 2px gray);
 }
 
 #home-details {
+    padding-top: 30px;
     width: 50%;
 }
 
 #home-details-title {
-    position: relative;
     font-size: 54px;
+    padding-bottom: 20px;
+}
+
+#home-details-title em {
+    font-style: normal;
+    position: relative;
 }
 
 #home-details-title em::before {
     position: absolute;
     content: "";
     width: 100%;
-    height: 28%;
-    top: auto;
-    bottom: 0;
+    height: 20%;
+    bottom: -5px;
     background-color: blue;
     font-weight: bold;
+    transition: all 0.5s;
+}
+
+
+#home-details h2 {
+    padding-bottom: 20px;
+}
+
+
+#home-details-description {
+    font-size: 22px;
+    line-height: 1.5;
+    font-family: Roboto;
+    margin-left: 40px;
+}
+
+.home-details-description-indented {
+    padding-left: 15px;
+    border-left: 10px solid yellow;
+}
+
+#home-details-description p {
+    padding-bottom: 10px;
 }

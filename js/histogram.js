@@ -37,7 +37,7 @@ function drawHistogram() {
                     data[d].find(d=> d.category === currentCategory).proportionFrench
             }
             let expenses_month = (expenses * (proportion / 100)) / 12
-            let maximum = d3.max(databyMonth)
+            let maximum = d3.max(databyMonth.concat(expenses_month))
 
             const xScale = d3.scaleBand()
                 .domain(d3.range(databyMonth.length))
