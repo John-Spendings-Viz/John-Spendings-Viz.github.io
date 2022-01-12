@@ -64,7 +64,7 @@ function drawRectTreeMap(root)
             // on affiche le tooltip
             d3.select("#tooltip").classed('hidden', d3.select(this).select("g").select(".treemap-legend-category").html() !== "")
                 .attr('style', 'left:' + (mousePosition[0] + 15) +
-                    'px; top:' + (mousePosition[1] - 35) + 'px')
+                    'px; top:' + (mousePosition[1] - 15) + 'px')
                 .html(`<center>${d.data.category} :</center>${d.data.totalExpenses}  (    
                            ${comparison < 0 ? "" : "+"}${comparison.toFixed()} %)`)
         })
@@ -149,6 +149,8 @@ function drawLabelsTreeMap(root){
 }
 
 function updateTreeMap() {
+    treemapWidth = parseFloat(d3.select("#treemap").style("width"))
+    treemapHeight = parseFloat(d3.select("#treemap").style("height"))
     let root = calculateTreeMap()
     if (root !== undefined){
         d3.select("#treemap").select("svg").selectAll("*").remove();

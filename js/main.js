@@ -65,4 +65,9 @@ document.addEventListener ("DOMContentLoaded", () => {
     })
 
     AOS.init();
+
+    window.onresize = function () {
+        updateTreeMap()
+        updateHistogram()
+    }
 })

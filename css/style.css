@@ -15,8 +15,7 @@ body{
 
 #visualisations {
     position: relative;
-    display: flex;
-    justify-content: space-between;
+
 }
 
 /* Navbar */
@@ -199,4 +198,12 @@ body{
 #home-john {
     padding-top: 30px;
     width: 30%;
+}
+
+/* Responsiveness */
+@media screen {
+    #visualisations {
+        display: flex;
+        justify-content: space-between;
+    }
 }
