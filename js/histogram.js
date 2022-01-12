@@ -117,8 +117,8 @@ function drawHistogram() {
                 .append('text')
                 .attr('x', 0)
                 .attr('y', yScale.range()[1] - 15)
-                .attr("font-size", 25)
-                .text('Depenses(€)')
+                .attr("font-size", 15)
+                .text('Dépenses(€)')
 
             svg.append('g').call(xAxis)
             svg.append('g').call(yAxis)

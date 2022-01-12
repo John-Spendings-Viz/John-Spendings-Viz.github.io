@@ -194,7 +194,7 @@ body{
 }
 
 /* Home */
-#home {
+#home, #about {
     display: flex;
     background: #282727;
     color: white;
