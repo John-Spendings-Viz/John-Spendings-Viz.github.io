@@ -11,13 +11,17 @@ let annualExpensesFrench = 0
 let currentYear = "all"
 let currentComparison = "student"
 let currentCategory = "all"
-const treemapWidth = 600
-const treemapHeight = 400
+
+let treemapWidth = 0
+let treemapHeight = 0
+let histWidth = 0
+let histHeight = 0
 
 let colorScale = d3
     .scaleQuantize()
     .domain([-0.7, 0.7])
     .range(["#d7191c", "#fdae61", "#f1f175", "#9dcc4d", "#1a9641"].reverse())
+//    .range(["#2c7bb6", "#abd9e9", "#ffffbf", "#fdae61", "#d7191c"])
 
 /*let colorScale = d3.scaleSequential()
     .interpolator(d3.interpolateRdYlGn)

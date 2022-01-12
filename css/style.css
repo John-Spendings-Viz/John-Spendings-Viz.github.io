@@ -4,7 +4,7 @@
 }
 
 body{
-    font-family: "Roboto";
+    font-family: "Tahoma";
     margin: 0;
 }
 
@@ -14,7 +14,9 @@ body{
 }
 
 #visualisations {
+    position: relative;
     display: flex;
+    justify-content: space-between;
 }
 
 /* Navbar */
@@ -22,7 +24,8 @@ body{
     width: 100%;
     height: var(--navbar-height);
     position: fixed;
-    background: linear-gradient(to left,#8c1919, #4d2c2c);
+    background: white;
+    box-shadow: 0px 1px 5px black;
 }
 
 #navbar .navbar-items {
@@ -33,6 +36,8 @@ body{
 
 #navbar #navbar-title {
     margin-right: auto;
+    font-weight: bold;
+    font-size: 14px;
 }
 
 #navbar .navbar-items > * {
@@ -40,16 +45,28 @@ body{
 }
 
 #navbar .navbar-items * {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 #navbar .navbar-items > *:hover:not(#navbar-title) {
-    border-bottom: solid red 3px;
+    border-bottom: solid black 3px;
 }
 
-#treemap > rect {
-    padding: 4px;
+#visualisations > * {
+    width: 45%;
+}
+
+#treemap{
+    width: 100%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+#histogram{
+    width: 90%;
+    height: 75%;
+    margin: 0 auto;
 }
 
 .title {
@@ -60,6 +77,7 @@ body{
 .title h1 {
     padding-bottom: 5px;
     position: relative;
+    font-size: 20pt;
 }
 
 .title h1::before {
@@ -83,23 +101,6 @@ body{
     border-radius: 2px;
     opacity: 0.9;
     position: absolute;
-}
-
-input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-
-    border: 2px solid #999;
-    transition: 0.2s all linear;
-    margin-right: 5px;
-
-    position: relative;
-    top: 4px;
 }
 
 #options {
@@ -154,6 +155,7 @@ input {
 }
 
 #treemap rect {
+    padding: 4px;
     stroke: black;
 }
 
@@ -186,4 +188,14 @@ input {
     text-shadow: 2px 2px 2px black;
     text-anchor: middle;
     dominant-baseline: hanging;
+}
+
+/* Home */
+#home > * {
+    display: flex;
+}
+
+#home-john {
+    padding-top: 30px;
+    width: 30%;
 }

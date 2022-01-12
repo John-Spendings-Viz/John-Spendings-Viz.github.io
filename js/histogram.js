@@ -1,8 +1,6 @@
 function drawHistogram() {
-
-    const Width = 1150;
-    const Height = 700;
-    const Margin = { top: 50, bottom: 50, left: 50, right: 50 };
+    histWidth = parseFloat(d3.select("#histogram").style("width"))
+    histHeight = parseFloat(d3.select("#histogram").style("height"))
 
     let container = d3.select('#histogram')
     let years = [2020,2021]
@@ -15,13 +13,11 @@ function drawHistogram() {
         .data(years)
         .enter()
         .append('svg')
-        .attr('height', Height - Margin.top - Margin.bottom)
-        .attr('width', Width - Margin.left - Margin.right)
-        // .attr('viewBox', [0,0, width, height])
+        .attr('width', histWidth)
+        .attr('height', currentYear === 'all' ? 0.5*histHeight:0.85*histHeight)
         .each(function(d) {
-            const width = 1050;
-            const height = currentYear === 'all' ? 350:600;
-            const margin = { top: 50, bottom: 50, left: 50, right: 50 };
+            const width = 0.9*histWidth;
+            const height = currentYear === 'all' ? 0.5*histHeight:0.85*histHeight;
 
             let comparaison = currentComparison === "student" ? "Etudiants":"Français"
             let expenses = currentComparison === "student" ? annualExpensesStudent:annualExpensesFrench
@@ -41,22 +37,18 @@ function drawHistogram() {
                     data[d].find(d=> d.category === currentCategory).proportionFrench
             }
             let expenses_month = (expenses * (proportion / 100)) / 12
-            var maximum = Math.max.apply(null, databyMonth);
+            let maximum = d3.max(databyMonth)
 
-            const x = d3.scaleBand()
+            const xScale = d3.scaleBand()
                 .domain(d3.range(databyMonth.length))
-                .range([margin.left, width - margin.right])
+                .range([0.1*width, 0.9*width])
                 .padding(0.1)
 
-            const y = d3.scaleLinear()
+            const yScale = d3.scaleLinear()
                 .domain([0,maximum])
-                .range([height - margin.bottom, margin.top]);
+                .range([0.8*height,0.2*height]);
 
             let svg = d3.select(this)
-            svg
-                .attr('height', height - margin.top - margin.bottom)
-                .attr('width', width - margin.left - margin.right)
-                .attr('viewBox', [0,0, width, height]);
 
             // Bar Chart
             svg
@@ -64,10 +56,10 @@ function drawHistogram() {
                 .selectAll('rect')
                 .data(databyMonth)
                 .join('rect')
-                .attr('x', (d,i) => x(i))
-                .attr('y', (d) => y(d))
-                .attr('height', (d) => y(0) - y(d))
-                .attr('width', x.bandwidth())
+                .attr('x', (d,i) => xScale(i))
+                .attr('y', (d) => yScale(d))
+                .attr('height', (d) => yScale(0) - yScale(d))
+                .attr('width', xScale.bandwidth())
                 .style("stroke", "black")
                 .style("fill", d => colorScale(
                         (d - expenses_month) / expenses_month
@@ -80,51 +72,51 @@ function drawHistogram() {
                 .selectAll("text")
                 .data(databyMonth)
                 .join("text")
-                .attr('x', (d,i) => x(i) + 15)
-                .attr('y', (d) => y(d) - 10)
+                .attr('x', (d,i) => xScale(i) + xScale.bandwidth()/2)
+                .attr('y', (d) => yScale(d) - 5)
+                .style("text-anchor", "middle")
                 .text((d) => d.toFixed(0))
-                .attr("font-size", 25)
+                .attr("font-size", histWidth<300?15:10)
 
             // Ligne moyenne
             svg
-                .selectAll('g')
-                .append('rect')
-                .attr('x', x(0) - 8)
-                .attr('y', y(expenses_month))
-                .attr('height', 3)
-                .attr('width', width - margin.left - margin.right)
-                .attr("fill", 'royalblue')
+                .select('g')
+                .append('line')
+                .attr('stroke-dasharray', "4")
+                .attr("x1", xScale.range()[0])
+                .attr("x2", xScale.range()[1])
+                .attr("y1",  yScale(expenses_month))
+                .attr('y2', yScale(expenses_month))
+                .attr("stroke", 'royalblue')
+                .attr("stroke-width", 2)
+                .style("opacity", 1.05*maximum >= expenses_month? 0.5:0)
 
             // Label moyenne
             svg
-                .selectAll('g')
+                .select('g')
                 .append('text')
-                .attr('x', x(11) + 90)
-                .attr('y', y(expenses_month) + 6)
-                .attr('height', 4)
-                .attr('width', width - margin.left - margin.right)
-                .attr("font-size", 25)
+                .attr('x', xScale.range()[1] + 0.5*xScale.bandwidth())
+                .attr('y', yScale(expenses_month))
+                .style("dominant-baseline", "middle")
+                .attr("font-size", histWidth<300?20:15)
                 .text(comparaison)
 
             //Legende Axe X
             svg
-                .selectAll('g')
+                .select('g')
                 .append('text')
-                .attr('x', x(11) + 90)
-                .attr('y', height - margin.bottom + 5)
-                .attr('height', 4)
-                .attr('width', width - margin.left - margin.right)
-                .attr("font-size", 30)
+                .attr('x', xScale.range()[1] + 0.5*xScale.bandwidth())
+                .attr('y', yScale.range()[0])
+                .attr("font-size", histWidth<300?30:20)
+                .style("dominant-baseline", "baseline")
                 .text(d)
 
             //Legende Axe Y
             svg
-                .selectAll('g')
+                .select('g')
                 .append('text')
-                .attr('x', -30)
-                .attr('y', margin.top - 15)
-                .attr('height', 4)
-                .attr('width', width - margin.left - margin.right)
+                .attr('x', 0)
+                .attr('y', yScale.range()[1] - 15)
                 .attr("font-size", 25)
                 .text('Depenses(€)')
 
@@ -134,18 +126,19 @@ function drawHistogram() {
 
 
             function xAxis(g) {
-                g.attr('transform', `translate(0, ${height- margin.bottom})`)
-                    .call(d3.axisBottom(x).tickFormat(i => months[i]))
-                    .attr('font-size','17px')
+                g.attr('transform', `translate(0, ${yScale.range()[0]})`)
+                    .call(d3.axisBottom(xScale).tickFormat(i => months[i].slice(0, 3)
+                        .replace("û", "u")
+                        .replace("é", "e")))
+                    .attr('font-size',histWidth<300?15:10)
             }
 
             function yAxis(g) {
-                g.attr('transform', `translate(${margin.left}, 0)`)
-                    .call(d3.axisLeft(y).ticks(null, databyMonth.format))
-                    .attr('font-size','20px')
+                g.attr('transform', `translate(${xScale.range()[0]}, 0)`)
+                    .call(d3.axisLeft(yScale).ticks(null, databyMonth.format))
+                    .attr('font-size',histWidth<300?17:12)
 
             }
-
         })
 
 

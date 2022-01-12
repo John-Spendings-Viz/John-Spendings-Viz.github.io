@@ -1,9 +1,4 @@
 document.addEventListener ("DOMContentLoaded", () => {
-    d3.select("#treemap")
-        .append ("svg")
-        .attr("width", treemapWidth)
-        .attr("height", treemapHeight)
-
     d3.csv(expensesByPopFile).then(function (expensesByPop) {
         d3.csv(johnExpensesFile).then(function (johnExpenses) {
             let cleanedJohnData = johnExpenses.filter(d => d.categorie !== "");
@@ -48,11 +43,8 @@ document.addEventListener ("DOMContentLoaded", () => {
             nestedData.push({category: "Origin", parent: ""})
             data["all"] = nestedData
 
-            let root = calculateTreeMap()
-            if (root !== undefined) {
-                drawRectTreeMap(root)
-                drawLabelsTreeMap(root)
-            }
+            drawTreeMap ()
+
             d3.selectAll("#option-year .option-choices > *").on("click", function () {
                 let oldYear = currentYear
                 let newYear = +this.textContent

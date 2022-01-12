@@ -7,7 +7,7 @@ function calculateTreeMap() {
         root.sum(d => +d.totalExpenses)
 
         d3.treemap()
-            .size([Math.round(0.9 * treemapWidth), Math.round(0.9 * treemapHeight)])
+            .size([Math.round(treemapWidth), Math.round(0.9 * treemapHeight)])
             .padding(4)
             (root)
         return root
@@ -25,6 +25,8 @@ function drawRectTreeMap(root)
 
     d3.select ("#treemap")
         .select ("svg")
+        .attr("width", "100%")
+        .attr("height", "100%")
         .selectAll("g")
         .data(root.leaves())
         .join("g")
@@ -100,17 +102,17 @@ function drawLabelsTreeMap(root){
         .duration(1000)
         .ease(d3.easeLinear)
         .attr ("class", "treemap-legend-category")
-        .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)    // +10 to adjust position (more right)
+        .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)
         .attr("y", d => {
-            if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)){
+            if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses) && 0.5*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0) {
                 return d.y0 + (d.y1 -d.y0) /2 - 0.3*textScale(d.data.totalExpenses)
             }
             else{
                 return d.y0 + (d.y1 - d.y0) / 2
             }
-        })   // +20 to adjust position (lower)
+        })
         .text(d => {
-            if (textScale(d.data.totalExpenses) >= 12 && d.y1 - d.y0 > textScale(d.data.totalExpenses)){
+            if (textScale(d.data.totalExpenses) >= 12 && d.y1 - d.y0 > textScale(d.data.totalExpenses) && 0.5*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0){
                 return d.data.category
             }
             else{
@@ -118,7 +120,7 @@ function drawLabelsTreeMap(root){
             }
         })
         .attr("font-size", d=> textScale(d.data.totalExpenses))
-        .style("dominant-baseline", d=> d.y1 - d.y0 > 3* textScale(d.data.totalExpenses) ?"baseline":"middle")
+        .style("dominant-baseline", d=> d.y1 - d.y0 > 3* textScale(d.data.totalExpenses) && 0.5*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0 ?"baseline":"middle")
 
     d3.selectAll("g g")
         .data(root.leaves())
@@ -131,7 +133,7 @@ function drawLabelsTreeMap(root){
         .attr ("class", "treemap-legend-comparisons")
         .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)    // +10 to adjust position (more right)
         .attr("y", d => {
-            if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)){
+            if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses) && 0.5*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0) {
                 return d.y0 + (d.y1 -d.y0) / 2 + 0.3*textScale(d.data.totalExpenses)
             }
             else{
@@ -139,7 +141,7 @@ function drawLabelsTreeMap(root){
             }
         })   // +20 to adjust position (lower)
         .text(d => {
-            if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)) {
+            if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses) && 0.5*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0) {
                 let proportionComparison = currentComparison === "student" ? "proportionStudent" : "proportionFrench"
                 let expenses = currentComparison === "student" ? annualExpensesStudent:annualExpensesFrench
                 expenses = currentYear === "all" ?expenses*(Object.keys(data).length-1):expenses
@@ -161,3 +163,14 @@ function updateTreeMap() {
     return root
 }
 
+function drawTreeMap(){
+    treemapWidth = parseFloat(d3.select("#treemap").style("width"))
+    treemapHeight = parseFloat(d3.select("#treemap").style("height"))
+    d3.select("#treemap")
+        .append ("svg")
+    let root = calculateTreeMap()
+    if (root !== undefined) {
+        drawRectTreeMap(root)
+        drawLabelsTreeMap(root)
+    }
+}
