@@ -254,3 +254,12 @@ body{
 #home-details-description p {
     padding-bottom: 10px;
 }
+
+#about {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+#about a {
+    color: white;
+}
