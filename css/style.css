@@ -54,7 +54,7 @@ body{
     border-bottom: solid black 3px;
 }
 
-#visualisations > * {
+#histogram-container, #treemap-container {
     width: 45%;
 }
 
