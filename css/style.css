@@ -12,7 +12,7 @@ body{
 
 .page-container {
     padding: var(--navbar-height);
-    min-height: 100vh;
+    min-height: 70vh;
 }
 
 #visualisations {
@@ -316,8 +316,8 @@ body{
 }
 
 #home-details-title {
-    font-size: 4vw;
-    padding-bottom: 3vh;
+    font-size: 3vw;
+    padding-bottom: 2.5vh;
 }
 
 #home-details-title em {
@@ -343,7 +343,7 @@ body{
 
 
 #home-details-description {
-    font-size: 1.8vw;
+    font-size: 1.6vw;
     line-height: 1.5;
     font-family: Roboto, serif;
     margin-left: 4vw;
