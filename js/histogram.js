@@ -4,6 +4,7 @@ function drawHistogram() {
 
     let container = d3.select('#histogram')
     let years = [2020,2021]
+    let xPadding = 0.045*histWidth
     if (currentYear !== 'all') {
         years = [parseInt(currentYear)]
     }
@@ -14,10 +15,10 @@ function drawHistogram() {
         .enter()
         .append('svg')
         .attr('width', histWidth)
-        .attr('height', currentYear === 'all' ? 0.5*histHeight:0.85*histHeight)
+        .attr('height', currentYear === 'all' ? 0.5*histHeight:histHeight)
         .each(function(d) {
             const width = 0.9*histWidth;
-            const height = currentYear === 'all' ? 0.5*histHeight:0.85*histHeight;
+            const height = currentYear === 'all' ? 0.5*histHeight:histHeight;
 
             let comparaison = currentComparison === "student" ? "Etudiants":"Français"
             let expenses = currentComparison === "student" ? annualExpensesStudent:annualExpensesFrench
@@ -56,7 +57,7 @@ function drawHistogram() {
                 .selectAll('rect')
                 .data(databyMonth)
                 .join('rect')
-                .attr('x', (d,i) => xScale(i))
+                .attr('x', (d,i) => xPadding + xScale(i))
                 .attr('y', (d) => yScale(d))
                 .attr('height', (d) => yScale(0) - yScale(d))
                 .attr('width', xScale.bandwidth())
@@ -72,19 +73,20 @@ function drawHistogram() {
                 .selectAll("text")
                 .data(databyMonth)
                 .join("text")
-                .attr('x', (d,i) => xScale(i) + xScale.bandwidth()/2)
-                .attr('y', (d) => yScale(d) - 5)
-                .style("text-anchor", "middle")
+                .attr('x', (d,i) => xScale(i) + xScale.bandwidth()/2 + xPadding)
+                .attr('y', (d) => yScale(d))
+                .attr('dy', '-0.5vh')
+                .attr("class", "barlabel")
                 .text((d) => d.toFixed(0))
-                .attr("font-size", histWidth<300?15:10)
+
 
             // Ligne moyenne
             svg
                 .select('g')
                 .append('line')
                 .attr('stroke-dasharray', "4")
-                .attr("x1", xScale.range()[0])
-                .attr("x2", xScale.range()[1])
+                .attr("x1", xScale.range()[0] + xPadding)
+                .attr("x2", xScale.range()[1] + xPadding)
                 .attr("y1",  yScale(expenses_month))
                 .attr('y2', yScale(expenses_month))
                 .attr("stroke", 'royalblue')
@@ -95,29 +97,28 @@ function drawHistogram() {
             svg
                 .select('g')
                 .append('text')
-                .attr('x', xScale.range()[1] + 0.5*xScale.bandwidth())
+                .attr('x', xScale.range()[1] + 0.5*xScale.bandwidth() + xPadding)
                 .attr('y', yScale(expenses_month))
-                .style("dominant-baseline", "middle")
-                .attr("font-size", histWidth<300?20:15)
+                .attr("class", "meanlabel")
                 .text(comparaison)
 
             //Legende Axe X
             svg
                 .select('g')
                 .append('text')
-                .attr('x', xScale.range()[1] + 0.5*xScale.bandwidth())
+                .attr('x', xScale.range()[1] + 0.5*xScale.bandwidth() + xPadding)
                 .attr('y', yScale.range()[0])
-                .attr("font-size", histWidth<300?30:20)
-                .style("dominant-baseline", "baseline")
+                .attr("class", "xlabel")
                 .text(d)
 
             //Legende Axe Y
             svg
                 .select('g')
                 .append('text')
-                .attr('x', 0)
-                .attr('y', yScale.range()[1] - 15)
-                .attr("font-size", 15)
+                .attr('x', xScale.range()[0] + xPadding)
+                .attr('y', yScale.range()[1])
+                .attr('dy', '-1vh')
+                .attr("class", "ylabel")
                 .text('Dépenses(€)')
 
             svg.append('g').call(xAxis)
@@ -126,18 +127,17 @@ function drawHistogram() {
 
 
             function xAxis(g) {
-                g.attr('transform', `translate(0, ${yScale.range()[0]})`)
+                g.attr('transform', `translate(${xPadding}, ${yScale.range()[0]})`)
                     .call(d3.axisBottom(xScale).tickFormat(i => months[i].slice(0, 3)
                         .replace("û", "u")
                         .replace("é", "e")))
-                    .attr('font-size',histWidth<300?15:10)
+                    .attr('class',"xticks")
             }
 
             function yAxis(g) {
-                g.attr('transform', `translate(${xScale.range()[0]}, 0)`)
+                g.attr('transform', `translate(${xScale.range()[0] + xPadding}, 0)`)
                     .call(d3.axisLeft(yScale).ticks(null, databyMonth.format))
-                    .attr('font-size',histWidth<300?17:12)
-
+                    .attr('class',"yticks")
             }
         })
 

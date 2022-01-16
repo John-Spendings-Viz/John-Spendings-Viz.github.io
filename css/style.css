@@ -12,7 +12,7 @@ body{
 
 .page-container {
     padding: var(--navbar-height);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #visualisations {
@@ -56,20 +56,126 @@ body{
     border-bottom: solid black 3px;
 }
 
-#histogram-container, #treemap-container {
-    width: 45%;
+@media screen and (max-width: 900px) {
+    #visualisations {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 200vh;
+    }
+
+    #histogram-container, #treemap-container {
+        width: 90%;
+        height: 90vh;
+        margin: 0 auto;
+    }
+
+    #treemap{
+        width: 100%;
+        height: 60%;
+        margin: 0 auto;
+    }
+
+    #histogram{
+        width: 90%;
+        height: 75%;
+        margin: 0 auto;
+    }
+
+    #options > * {
+        font-size: 2vw;
+    }
+
+    #options .option-choices > * {
+        padding: 1vw 1vw;
+    }
+
+    .ylabel{
+        font-size: 1.7vw;
+        text-anchor: middle;
+    }
+
+    .xlabel{
+        font-size: 2vw;
+        dominant-baseline: auto;
+    }
+
+    .xticks, .yticks{
+        font-size: 1.7vw;
+    }
+
+    .meanlabel{
+        dominant-baseline: middle;
+        font-size: 1.6vw
+    }
+
+    .barlabel{
+        text-anchor: middle;
+        font-size: 1.1vw;
+    }
 }
 
-#treemap{
-    width: 100%;
-    height: 60%;
-    margin: 0 auto;
+
+@media screen and (min-width: 900px) {
+    #visualisations {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        height: 100vh;
+    }
+
+    #histogram-container, #treemap-container {
+        width: 45%;
+        height: 90vh;
+    }
+
+    #treemap{
+        width: 100%;
+        height: 60%;
+        margin: 0 auto;
+    }
+
+    #histogram{
+        width: 90%;
+        height: 75%;
+        margin: 0 auto;
+    }
+
+    #options > * {
+        font-size: 1vw;
+    }
+
+    #options .option-choices > * {
+        padding: 0.7vw 0.7vw;
+    }
+
+    .ylabel{
+        font-size: 1vw;
+        text-anchor: middle;
+    }
+
+    .xlabel{
+        font-size: 1.2vw;
+        dominant-baseline: auto;
+    }
+
+    .xticks, .yticks{
+        font-size: 1vw;
+    }
+
+    .meanlabel{
+        dominant-baseline: middle;
+        font-size: 0.9vw
+    }
+
+    .barlabel{
+        text-anchor: middle;
+        font-size: 0.7vw;
+    }
 }
 
-#histogram{
-    width: 90%;
-    height: 75%;
-    margin: 0 auto;
+#visualisations {
+    position: relative;
 }
 
 .title {
@@ -78,18 +184,18 @@ body{
 }
 
 .title h1 {
-    padding-bottom: 5px;
+    padding-bottom: 1vh;
     position: relative;
-    font-size: 20pt;
+    font-size: 2vw;
 }
 
 .title h1::before {
     position: absolute;
     content: "";
     width: 89%;
-    height: 14px;
-    bottom: 5px;
-    transform: skew(-12deg) translateX(5px);
+    height: 2vh;
+    bottom: 1vh;
+    transform: skew(-12deg) translateX(0.7vw);
     background: rgba(119, 113, 113, 0.17);
     opacity: 0.7;
     z-index: -1;
@@ -97,7 +203,7 @@ body{
 
 #tooltip {
     font-size: 10pt;
-    font-family: "Verdana";
+    font-family: "Verdana", serif;
     color: #222;
     background-color: #fff;
     padding: .5em;
@@ -109,7 +215,7 @@ body{
 #options {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 1vw;
 }
 
 #options > * {
@@ -117,14 +223,12 @@ body{
 }
 
 #options .option-name {
-    line-height: 40px; /* centre verticalement les titre */
-    padding-right: 10px;
+    line-height: 6.5vh; /* centre verticalement les titre */
+    padding-right: 0.7vw;
 }
 
 #options .option-choices > * {
-    font-size: 16px;
-    padding: 10px 10px;
-    border: 3px solid black;
+    border: 0.3vw solid black;
     float: left;
     transition: 0.5s;
 }
@@ -134,11 +238,11 @@ body{
 }
 
 #options .option-choices > *:first-child {
-    border-radius: 10px 0 0 10px;
+    border-radius: 1vw 0 0 1vw;
 }
 
 #options .option-choices > *:last-child {
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 1vw 1vw 0;
 }
 
 #options .option-choices > *:hover:not(.option-selected) {
@@ -158,7 +262,6 @@ body{
 }
 
 #treemap rect {
-    padding: 4px;
     stroke: black;
 }
 
@@ -201,20 +304,20 @@ body{
 }
 
 #home-john {
-    padding-top: 30px;
-    padding-left: 20px;
+    padding-top: 5vh;
+    padding-left: 3vw;
     width: 30%;
     filter: drop-shadow(5px 5px 2px gray);
 }
 
 #home-details {
-    padding-top: 30px;
+    padding-top: 5vh;
     width: 50%;
 }
 
 #home-details-title {
-    font-size: 54px;
-    padding-bottom: 20px;
+    font-size: 4vw;
+    padding-bottom: 3vh;
 }
 
 #home-details-title em {
@@ -227,7 +330,7 @@ body{
     content: "";
     width: 100%;
     height: 20%;
-    bottom: -5px;
+    bottom: -1vh;
     background-color: blue;
     font-weight: bold;
     transition: all 0.5s;
@@ -240,10 +343,10 @@ body{
 
 
 #home-details-description {
-    font-size: 22px;
+    font-size: 1.8vw;
     line-height: 1.5;
     font-family: Roboto;
-    margin-left: 40px;
+    margin-left: 4vw;
 }
 
 .home-details-description-indented {
