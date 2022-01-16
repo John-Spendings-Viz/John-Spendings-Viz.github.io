@@ -12,8 +12,7 @@ function drawHistogram() {
     container
         .selectAll('svg')
         .data(years)
-        .enter()
-        .append('svg')
+        .join('svg')
         .attr('width', histWidth)
         .attr('height', currentYear === 'all' ? 0.5*histHeight:histHeight)
         .each(function(d) {
@@ -23,7 +22,7 @@ function drawHistogram() {
             let comparaison = currentComparison === "student" ? "Etudiants":"Français"
             let expenses = currentComparison === "student" ? annualExpensesStudent:annualExpensesFrench
             let proportion = 100
-            let databyMonth = []
+            let databyMonth
 
             // cas 1 : categorie == all
             if (currentCategory === "all") {
@@ -47,7 +46,7 @@ function drawHistogram() {
 
             const yScale = d3.scaleLinear()
                 .domain([0,maximum])
-                .range([0.8*height,0.2*height]);
+                .range([0.85*height,0.2*height]);
 
             let svg = d3.select(this)
 
@@ -84,13 +83,10 @@ function drawHistogram() {
             svg
                 .select('g')
                 .append('line')
-                .attr('stroke-dasharray', "4")
                 .attr("x1", xScale.range()[0] + xPadding)
                 .attr("x2", xScale.range()[1] + xPadding)
                 .attr("y1",  yScale(expenses_month))
                 .attr('y2', yScale(expenses_month))
-                .attr("stroke", 'royalblue')
-                .attr("stroke-width", 2)
                 .style("opacity", 1.05*maximum >= expenses_month? 0.5:0)
 
             // Label moyenne
@@ -136,7 +132,7 @@ function drawHistogram() {
 
             function yAxis(g) {
                 g.attr('transform', `translate(${xScale.range()[0] + xPadding}, 0)`)
-                    .call(d3.axisLeft(yScale).ticks(null, databyMonth.format))
+                    .call(d3.axisLeft(yScale).ticks(8, "f"))
                     .attr('class',"yticks")
             }
         })

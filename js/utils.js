@@ -76,18 +76,6 @@ function updateSelectedCategory (rect, oldCategory) {
     }
 }
 
-function getMaxTuple(listTuple){
-    let max = 0
-    let keyMax = undefined
-    for (let array of listTuple){
-        if (array[1] > max){
-            max = array[1]
-            keyMax = array[0]
-        }
-    }
-    return keyMax
-}
-
 function buildDataByMonthJohn(year) {
 
     let array = []

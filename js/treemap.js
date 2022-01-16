@@ -20,7 +20,6 @@ function drawRectTreeMap(root)
     let proportionComparison = currentComparison === "student" ? "proportionStudent" : "proportionFrench"
     let expenses = currentComparison === "student" ? annualExpensesStudent:annualExpensesFrench
     expenses = currentYear === "all" ?expenses*(Object.keys(data).length-1):expenses
-    let total_expenses = root.value
 
     d3.select ("#treemap")
         .select ("svg")
@@ -30,15 +29,14 @@ function drawRectTreeMap(root)
         .data(root.leaves())
         .join("g")
         .append("rect")
-        .transition()
-        .delay(100)
-        .duration(1000)
-        .ease(d3.easeLinear)
-        .on('start',function(){ d3.select(this).style("opacity", "0.2")})
         .attr('x', d => d.x0)
         .attr('y', d => d.y0)
         .attr('width', d => d.x1 - d.x0)
         .attr('height', d => d.y1 - d.y0)
+        .transition()
+        .delay(100)
+        .duration(500)
+        .on('start',function(){ d3.select(this).style("opacity", "0.2")})
         .style("stroke", "black")
         .style("fill", d => colorScale(
             (d.data.totalExpenses - (expenses * d.data[proportionComparison] / 100)) /
@@ -57,18 +55,15 @@ function drawRectTreeMap(root)
         .on('mousemove', function (e, d) {
             // on recupere la position de la souris,
             // e est l'object event
-            let mousePosition = [e.x, e.y]
-            let proportions_expenses = (d.data.totalExpenses / total_expenses * 100)
+            let mousePosition = [e.pageX, e.pageY]
             let expenses_mean = (expenses*d.data[proportionComparison]/100)
             let comparison = ((d.data.totalExpenses - expenses_mean) / expenses_mean * 100)
-            let most_expenses = currentYear !== "all"?months [d3.greatestIndex (d.data.expensesByMonth)]: getMaxTuple(d.data.totalExpensesByYear)
-            let value_most_expenses = currentYear !== "all"? d3.max (d.data.expensesByMonth):Math.max(...d.data.totalExpensesByYear.map(d=> d[1]))
             // on affiche le tooltip
             d3.select("#tooltip").classed('hidden', d3.select(this).select("g").select(".treemap-legend-category").html() !== "")
-                .attr('style', 'left:' + (mousePosition[0] + 15) +
-                    'px; top:' + (mousePosition[1] + 190) + 'px')
+                .attr('style', 'left:' + (mousePosition[0] + 10) +
+                    'px; top:' + (mousePosition[1] - 50) + 'px')
                 .html(`<span style="text-align: center;">${d.data.category} :</span><br /> 
-                        ${d.data.totalExpenses}  (${comparison < 0 ? "" : "+"}${comparison.toFixed()} %)`)
+                        ${d.data.totalExpenses} € (${comparison < 0 ? "" : "+"}${comparison.toFixed()} %)`)
         })
         .on('mouseout', function () {
             // on cache le tooltip
@@ -89,14 +84,10 @@ function drawLabelsTreeMap(root){
         .join("g")
         .append("g")
         .append("text")
-        .transition()
-        .delay(100)
-        .duration(1000)
-        .ease(d3.easeLinear)
         .attr ("class", "treemap-legend-category")
         .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)
         .attr("y", d => {
-            if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)
+            if (d.y1 - d.y0 > 3 * textScale(d.data.totalExpenses)
                 && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0) {
                 return d.y0 + (d.y1 -d.y0) /2 - 0.3*textScale(d.data.totalExpenses)
             }
@@ -104,9 +95,12 @@ function drawLabelsTreeMap(root){
                 return d.y0 + (d.y1 - d.y0) / 2
             }
         })
+        .transition()
+        .delay(100)
+        .duration(500)
+        .on('start',function(){ d3.select(this).style("opacity", "0")})
         .text(d => {
-
-            if (textScale(d.data.totalExpenses) >= 12 && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0){
+            if (d.y1 - d.y0 > 3 * textScale(d.data.totalExpenses) && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0){
                 return d.data.category
             }
             else{
@@ -116,15 +110,12 @@ function drawLabelsTreeMap(root){
         .attr("font-size", d=> textScale(d.data.totalExpenses))
         .style("dominant-baseline", d=> d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)
                 && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0?"baseline":"middle")
+        .on('end',  function(){ d3.select(this).style("opacity", "1"); })
 
     d3.selectAll("g g")
         .data(root.leaves())
         .join("g")
         .append("text")
-        .transition()
-        .delay(100)
-        .duration(1000)
-        .ease(d3.easeLinear)
         .attr ("class", "treemap-legend-comparisons")
         .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)    // +10 to adjust position (more right)
         .attr("y", d => {
@@ -147,7 +138,12 @@ function drawLabelsTreeMap(root){
                 return parseFloat(d.data.totalExpenses).toFixed() + "€ (" + (comparison < 0 ? "" : "+") + comparison.toFixed() + "%)"
             }
         })
+        .transition()
+        .delay(100)
+        .duration(500)
+        .on('start',function(){ d3.select(this).style("opacity", "0")})
         .attr("font-size", d => 0.8*textScale(d.data.totalExpenses))
+        .on('end',  function(){ d3.select(this).style("opacity", "1"); })
 }
 
 function updateTreeMap() {
