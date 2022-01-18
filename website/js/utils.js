@@ -1,8 +1,8 @@
 const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
     "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
 
-const expensesByPopFile = "../data/expenses_by_population.csv"
-const johnExpensesFile = "../data/john_expenses.csv"
+const expensesByPopFile = "data/expenses_by_population.csv"
+const johnExpensesFile = "data/john_expenses.csv"
 const totalCategoryName = "Total (euros)"
 
 let annualExpensesStudent = 0

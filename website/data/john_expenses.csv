@@ -1,0 +1,642 @@
+libelle,date,montant,categorie
+Bouygues Telecom,27/12/2021,11.99,Communications
+LA FRANCAISE DES BOULOGNE,24/12/2021,8.5,Loisirs
+AMAZON EU SARL PAYLI,23/12/2021,79.72,Autres
+FNAC LYON CEDEX ,20/12/2021,68.98,Autres
+GLOCAL DIFFUSION LUNEL,20/12/2021,25.0,Autres
+BERNACHON LYON,20/12/2021,21.9,Autres
+MAISON RETRAITE VARENNE ST ,20/12/2021,18.5,Loisirs
+SNCF INTERNET PARIS ,20/12/2021,18.0,Transports
+CARREFOUR LYON ,20/12/2021,13.89,Autres
+MAB COLMAR,20/12/2021,10.29,Autres
+Smile&P*LE CARTON DES LIMA ,20/12/2021,9.0,Alimentation
+SumUp *Horror Show Troyes,20/12/2021,8.0,Alimentation
+LE COMPTOIR DE M CAMARET S ,20/12/2021,6.0,Autres
+MAB COLMAR,20/12/2021,3.72,Autres
+RATP PARIS,20/12/2021,3.65,Transports
+SNCF PARIS ,20/12/2021,3.65,Transports
+ASV EVENT LYON,20/12/2021,3.0,Alimentation
+MAXICOFFEE ARA NEYRON,20/12/2021,1.2,Alimentation
+REST UNIV PUVIS ,17/12/2021,6.6,Alimentation
+MAXICOFFEE ARA NEYRON,16/12/2021,2.3,Alimentation
+MAXICOFFEE ARA NEYRON,16/12/2021,1.6,Alimentation
+MAXICOFFEE ARA NEYRON,16/12/2021,1.0,Alimentation
+SEAZEN LYON ,15/12/2021,6.9,Loisirs
+CARREFOUR MARKET VILLEURBA ,14/12/2021,12.25,Alimentation
+MAXICOFFEE ARA NEYRON,14/12/2021,1.2,Alimentation
+DECITRE LYON,13/12/2021,24.9,Loisirs
+SumUp *Stand Fetes d Lyon,13/12/2021,6.0,Alimentation
+MAXICOFFEE ARA NEYRON,10/12/2021,1.0,Alimentation
+IZLY SMONEY PARIS,09/12/2021,10.0,Alimentation
+MAXICOFFEE ARA NEYRON,09/12/2021,1.2,Alimentation
+ARICI VILLEURBANNE,08/12/2021,3.3,Alimentation
+SNCF INTERNET PARIS ,07/12/2021,56.0,Transports
+BP VILLEURB FACU,07/12/2021,3.2,Alimentation
+CARREFOUR MARKET VILLEURBA ,06/12/2021,38.14,Alimentation
+MAXICOFFEE ARA NEYRON,06/12/2021,1.0,Alimentation
+MAXICOFFEE ARA NEYRON,06/12/2021,1.0,Alimentation
+MUTUELLE UNEO UNEO/,06/12/2021,35.36,Santé/Bien être
+IZLY SMONEY PARIS,03/12/2021,10.0,Alimentation
+AMAZON EU SARL PAYLI,02/12/2021,249.0,Communications
+MAXICOFFEE ARA NEYRON,02/12/2021,1.2,Alimentation
+MAXICOFFEE ARA NEYRON,02/12/2021,1.2,Alimentation
+CARREFOUR MARKET VILLEURBA ,30/11/2021,49.33,Alimentation
+ANPILO VILLEURBANNE,30/11/2021,14.9,Loisirs
+ANPILO VILLEURBANNE,30/11/2021,11.9,Loisirs
+VIR INST vers ARLIM GESTION DONT ,30/11/2021,400.0,Habitation
+WA BENTO SAINT-ETIENNE,29/11/2021,17.5,Loisirs
+LES HALLES JAPON LYON,29/11/2021,16.7,Alimentation
+PLAISIRS GOURMAND TOSSIAT,29/11/2021,15.0,Alimentation
+HIPPOPOTAMUS LYONPART,29/11/2021,14.9,Loisirs
+iZ *Ma Patte Laiss MEYZIEU ,29/11/2021,8.5,Autres
+GINGEMBRE ET GO NEUILLY SU ,29/11/2021,7.0,Alimentation
+LES HALLES JAPON LYON,29/11/2021,4.5,Autres
+WA BENTO SAINT-ETIENNE,29/11/2021,2.5,Loisirs
+Bouygues Telecom ,29/11/2021,11.99,Communications
+MAXICOFFEE ARA NEYRON,26/11/2021,1.6,Alimentation
+MAXICOFFEE ARA NEYRON,26/11/2021,1.2,Alimentation
+MAXICOFFEE ARA NEYRON,26/11/2021,1.0,Alimentation
+S.L.T.C. LYON,25/11/2021,10.0,Transports
+ARICI VILLEURBANNE,25/11/2021,6.2,Alimentation
+MAXICOFFEE ARA NEYRON,25/11/2021,1.0,Alimentation
+CARREFOUR.FR MONDEVILLE,19/11/2021,154.26,Alimentation
+VIR INST vers ARLIM GESTION FRAIS DE TRAITEMENT ,19/11/2021,2.76,Habitation
+MAXICOFFEE ARA NEYRON,18/11/2021,0.5,Alimentation
+OXXO VILLEURBANNE,17/11/2021,12.0,Loisirs
+OXXO VILLEURBANNE,17/11/2021,7.0,Loisirs
+MAXICOFFEE ARA NEYRON,17/11/2021,1.2,Alimentation
+MAXICOFFEE ARA NEYRON,17/11/2021,1.2,Alimentation
+CARREFOUR MARKET VILLEURBA ,16/11/2021,24.08,Alimentation
+PHARMACIE BOY VU VILLEURBA ,16/11/2021,16.4,Santé/Bien être
+MPG FLEURS VILLEURBANNE,15/11/2021,15.0,Autres
+MAXICOFFEE ARA NEYRON,15/11/2021,1.0,Alimentation
+HIPPOPOTAMUS LYONPART,12/11/2021,19.9,Loisirs
+LA FRANCAISE DES BOULOGNE,12/11/2021,5.0,Loisirs
+MAXICOFFEE ARA NEYRON,12/11/2021,1.1,Alimentation
+MAXICOFFEE ARA NEYRON,12/11/2021,0.4,Alimentation
+BASILIC&CO VILLEURBANNE,08/11/2021,41.0,Loisirs
+MUTUELLE UNEO UNEO/,05/11/2021,35.36,Santé/Bien être
+DELIVEROO ,04/11/2021,8.51,Alimentation
+MAXICOFFEE ARA NEYRON,03/11/2021,1.0,Alimentation
+BlaBlaCar BlaBlaCar Paris,02/11/2021,16.0,Transports
+VIR INST vers ARLIM GESTION TOTAL TTC : ,02/11/2021,17.24,Habitation
+VIR INST vers ARLIM GESTION DONT ,02/11/2021,400.0,Habitation
+Bouygues Telecom ,27/10/2021,11.99,Communications
+AMAZON PAYMENTS PAYLI,26/10/2021,25.99,Loisirs
+ANIXY SACLAY,26/10/2021,14.0,Loisirs
+SNCF INTERNET PARIS ,26/10/2021,1.0,Transports
+BlaBlaCar BlaBlaCar Paris,25/10/2021,18.0,Transports
+SIBILIA LYON,25/10/2021,12.14,Autres
+BZB ,25/10/2021,6.5,Habillement
+CC LPD LYON CEDEX ,25/10/2021,0.5,Autres
+JUL ,22/10/2021,71.98,Habillement
+VOISIN LYONPARTDIE /,22/10/2021,41.8,Autres
+CELIO,22/10/2021,26.14,Habillement
+SUPERMARCHE ASIE LYON,22/10/2021,22.66,Alimentation
+CARREFOUR PARTDI LYON,22/10/2021,19.81,Alimentation
+MY LITTLE WARUNG LYON EME,22/10/2021,13.5,Loisirs
+LEAF MARKET LYON,22/10/2021,11.25,Autres
+S.L.T.C. LYON,22/10/2021,10.0,Transports
+ARICI VILLEURBANNE,20/10/2021,4.4,Alimentation
+IKONE LYON,15/10/2021,15.9,Loisirs
+CARREFOUR MARKET VILLEURBA ,14/10/2021,61.04,Alimentation
+MAXICOFFEE ARA NEYRON,14/10/2021,0.5,Alimentation
+BANE LAO VILLEURBANNE,13/10/2021,14.35,Alimentation
+INSTITUT LUMIERE LYON,13/10/2021,10.0,Loisirs
+LVC VILLEURBANNE,13/10/2021,3.58,Alimentation
+TENUE DE COMPTE ,12/10/2021,3.3,Autres
+MAXICOFFEE ARA NEYRON,12/10/2021,1.0,Alimentation
+Too Good To Go KOEBENHAVN,11/10/2021,3.99,Alimentation
+FLAM'S LYON,08/10/2021,11.7,Loisirs
+MUTUELLE UNEO UNEO/,05/10/2021,35.36,Santé/Bien être
+VOISIN LYONPARTDIE /,04/10/2021,27.56,Autres
+Too Good To Go KOEBENHAVN,04/10/2021,3.99,Alimentation
+VIR INST vers ARLIM GESTION DONT ,02/10/2021,400.0,Habitation
+CARREFOUR MARKET VILLEURBA ,30/09/2021,65.13,Alimentation
+ANPILO VILLEURBANNE,28/09/2021,14.9,Loisirs
+SMAC FRONTONAS,28/09/2021,10.5,Loisirs
+Too Good To Go KOEBENHAVN,27/09/2021,4.0,Alimentation
+Bouygues Telecom ,27/09/2021,11.99,Communications
+UBER *EATS HELP.UBER.COM,24/09/2021,15.67,Alimentation
+UZR*hso-ritterladen.d Grun ,23/09/2021,35.3,Autres
+BP VILLEURB FACU,23/09/2021,4.64,Alimentation
+S.L.T.C. LYON,22/09/2021,10.0,Transports
+MAXICOFFEE ARA NEYRON,22/09/2021,0.5,Alimentation
+MAXICOFFEE ARA NEYRON,22/09/2021,0.5,Alimentation
+IZLY SMONEY PARIS,21/09/2021,37.5,Alimentation
+MAXICOFFEE ARA NEYRON,21/09/2021,0.5,Alimentation
+CARREFOUR MARKET VILLEURBA ,20/09/2021,106.09,Alimentation
+PANZEROTTIAMO LYON,20/09/2021,5.3,Alimentation
+YOGOLICIOUS LYON,20/09/2021,4.03,Autres
+LES SAVONNERIES LYON ,20/09/2021,2.0,Habitation
+YOGOLICIOUS LYON,20/09/2021,1.67,Loisirs
+LVC VILLEURBANNE,17/09/2021,7.42,Alimentation
+MAXICOFFEE ARA NEYRON,17/09/2021,0.5,Alimentation
+Food Society Lyon,15/09/2021,10.0,Loisirs
+Food Society Lyon Paris,15/09/2021,5.0,Loisirs
+Food Society Lyon Paris,15/09/2021,4.3,Loisirs
+CARREFOUR MARKET VILLEURBA ,14/09/2021,34.08,Alimentation
+CAFE DES NEGOCIANTS LYON ,13/09/2021,35.0,Loisirs
+CLAP ESCAPE LYON ,13/09/2021,24.0,Loisirs
+THEATRE T.D.O. LYON ,10/09/2021,29.0,Loisirs
+MC DO REPUBLIQUE LYON,09/09/2021,5.95,Loisirs
+SumUp *Charlotte Ren VILLE ,06/09/2021,50.0,Santé/Bien être
+KIABI ST PRIEST,06/09/2021,25.0,Habillement
+AUCHAN ST PRIEST,06/09/2021,21.53,Habitation
+PHIE PORTE DES A ST PRIEST ,06/09/2021,16.9,Santé/Bien être
+ARICI VILLEURBANNE,06/09/2021,8.5,Alimentation
+CARREFOUR MARKET VILLEURBA ,06/09/2021,5.3,Alimentation
+TERRE ADELICE LYON,06/09/2021,5.0,Loisirs
+BRIOCHE DOREE ST PRIEST,06/09/2021,2.7,Alimentation
+MUTUELLE UNEO UNEO/,06/09/2021,35.36,Santé/Bien être
+CARREFOUR MARKET VILLEURBA ,03/09/2021,78.56,Alimentation
+K,03/09/2021,14.9,Loisirs
+PHARMACIE BOY VU VILLEURBA ,03/09/2021,4.5,Santé/Bien être
+S.L.T.C. LYON,02/09/2021,10.0,Transports
+IZLY SMONEY PARIS,02/09/2021,10.0,Alimentation
+VIR INST vers ARLIM GESTION DONT ,01/09/2021,400.0,Habitation
+S.L.T.C. LYON,30/08/2021,15.1,Transports
+BlaBlaCar Paris,27/08/2021,15.0,Transports
+Bouygues Telecom ,27/08/2021,24.99,Communications
+AMAZON PAYMENTS PAYLI,24/08/2021,48.08,Autres
+AMAZON EU SARL PAYLI,23/08/2021,10.2,Autres
+SNCF CRETEIL,16/08/2021,4.15,Transports
+AMAPOLA PARIS,09/08/2021,42.0,Autres
+PARIS CHALIGNY,09/08/2021,30.0,Autres
+ERNEST & VALENTI PARIS,09/08/2021,14.7,Alimentation
+RATP PARIS,09/08/2021,4.45,Transports
+SNCF PARIS ,09/08/2021,4.45,Transports
+SNCF INTERNET SAINT DENIS,06/08/2021,29.0,Transports
+MUTUELLE UNEO UNEO/,05/08/2021,35.36,Santé/Bien être
+AMAZON EU SARL PAYLI,02/08/2021,12.76,Santé/Bien être
+WEB ARLIM GESTION LOYER AOUT ,01/08/2021,400.0,Habitation
+Bouygues Telecom ,27/07/2021,24.99,Communications
+COMPTOIR ACTIF VEZELAY,26/07/2021,5.0,Alimentation
+BASILIQUE_DE_VEZELAY NANTE ,26/07/2021,2.0,Autres
+RELAY ,12/07/2021,11.9,Loisirs
+SNCF VERSAILLES,12/07/2021,6.15,Transports
+LA FRANCAISE DES BOULOGNE,12/07/2021,5.0,Loisirs
+,12/07/2021,1.0,Alimentation
+TENUE DE COMPTE ,08/07/2021,3.3,Autres
+MUTUELLE UNEO UNEO/,06/07/2021,42.56,Santé/Bien être
+VOISIN LYONPARTDIE /,05/07/2021,37.31,Autres
+RATP PARIS,05/07/2021,3.65,Transports
+RATP PARIS,05/07/2021,2.55,Transports
+SNCF INTERNET SAINT DENIS,02/07/2021,29.0,Transports
+VIR INST vers ARLIM GESTION DONT ,01/07/2021,400.0,Habitation
+CELIO LYON,29/06/2021,99.98,Habillement
+ERAM ,29/06/2021,80.0,Habillement
+LABO DU PARC LYON,29/06/2021,44.42,Santé/Bien être
+LEAF MARKET LYON,29/06/2021,41.95,Autres
+LABO DU PARC LYON,29/06/2021,9.72,Santé/Bien être
+WKTL LYON PART DIEU,29/06/2021,3.5,Alimentation
+CARREFOUR LYON,28/06/2021,24.87,Alimentation
+BlaBlaCar Paris,28/06/2021,18.0,Transports
+AQUARIUMS OCEWOR LA MULATI ,28/06/2021,16.0,Loisirs
+JUL ,28/06/2021,15.99,Habillement
+BURGERS DE PAPA LYON EME,28/06/2021,10.9,Loisirs
+STARBUCKS LYON,28/06/2021,8.7,Alimentation
+AQUARIUMS OCEANW LA MULATI ,28/06/2021,5.5,Loisirs
+CC LPD LYON CEDEX ,28/06/2021,0.5,Autres
+Bouygues Telecom ,28/06/2021,24.99,Communications
+COMBIER AURELIE VILLEURBAN ,25/06/2021,7.5,Santé/Bien être
+SUPER U LYON,25/06/2021,4.28,Alimentation
+LA REDOUTE FR ROUBAIX,24/06/2021,39.99,Habillement
+STEAK'N SHAKE LYON,24/06/2021,13.4,Loisirs
+CARREFOUR MARKET VILLEURBA ,24/06/2021,3.55,Alimentation
+FNAC LYON CEDEX ,23/06/2021,33.39,Loisirs
+CARREFOUR PARTDI LYON,23/06/2021,6.55,Alimentation
+WKTL LYON PART DIEU,23/06/2021,4.0,Alimentation
+PAYPAL PARIS,22/06/2021,21.5,Autres
+MONOPRIX LYON ,21/06/2021,32.69,Alimentation
+LYON LOISIRS,21/06/2021,16.5,Loisirs
+PIZZA LINA LYON,21/06/2021,11.0,Loisirs
+TACO TACO LYON ,21/06/2021,10.3,Loisirs
+VSD ,21/06/2021,8.9,Loisirs
+AUBERGE CANUTS LYON,21/06/2021,8.0,Loisirs
+CINEMA LUMIERE LYON,21/06/2021,6.7,Loisirs
+SNCF LYON ,21/06/2021,6.4,Transports
+FOURNIL VILLEURBANNE,21/06/2021,5.1,Alimentation
+LE FOURNIL NEUVILLE SUR SA ,21/06/2021,3.6,Alimentation
+PIZZA LINA LYON,21/06/2021,3.5,Loisirs
+BIG FERNAND LYON,18/06/2021,20.2,Loisirs
+MONOP LYON ,18/06/2021,10.39,Alimentation
+FOURNITURE CARTE DEBIT MCD I ,16/06/2021,21.75,Autres
+WEB Maman CADEAU JEAN-LOUIS FETE ,15/06/2021,37.0,Autres
+LA VIEILLE CONSE LYON,14/06/2021,24.9,Autres
+MAISON VICTOIRE LYON,14/06/2021,24.0,Autres
+CHARCUTERIE GAST LYON ,14/06/2021,17.84,Autres
+YI SUSHI LYON,14/06/2021,16.17,Loisirs
+WKTL LYON PART DIEU,14/06/2021,14.5,Loisirs
+RELAY ,14/06/2021,12.6,Loisirs
+SNCF PARIS ,14/06/2021,11.1,Transports
+BOUL DE LA HALLE LYON,14/06/2021,9.9,Alimentation
+YI SUSHI LYON,14/06/2021,5.31,Loisirs
+SM CASINO SAINT ,14/06/2021,2.63,Santé/Bien être
+CARREFOUR MARKET VILLEURBA ,07/06/2021,85.2,Alimentation
+KUBII DARDILLY,07/06/2021,33.64,Autres
+MUTUELLE UNEO UNEO/,07/06/2021,35.36,Santé/Bien être
+SNCF INTERNET PARIS ,01/06/2021,62.0,Transports
+SNCF OUIGO PUTEAUX,01/06/2021,6.0,Transports
+VIR INST vers ARLIM GESTION DONT ,01/06/2021,400.0,Habitation
+CARREFOUR MARKET VILLEURBA ,31/05/2021,57.75,Alimentation
+S.L.T.C. LYON,31/05/2021,32.5,Transports
+PHIE CONDORCET VILLEURBANN ,31/05/2021,25.4,Santé/Bien être
+AU FIL BISTROT LYON,31/05/2021,11.5,Loisirs
+CARREFOUR MARKET VILLEURBA ,31/05/2021,10.9,Alimentation
+ARICI VILLEURBANNE,31/05/2021,7.1,Alimentation
+LA NONNA LYON,28/05/2021,16.9,Loisirs
+ARICI VILLEURBANNE,27/05/2021,6.2,Alimentation
+Bouygues Telecom ,27/05/2021,24.99,Communications
+AMAZON EU SARL PAYLI,21/05/2021,22.01,Autres
+FNAC.COM IVRY SUR SEINE,20/05/2021,15.0,Loisirs
+BURGER KING LYON ,20/05/2021,12.9,Loisirs
+FNAC.COM IVRY SUR SEINE,18/05/2021,23.9,Autres
+GAB,17/05/2021,50.0,Autres
+FNAC LYON CEDEX ,17/05/2021,11.24,Autres
+Too Good To Go KOEBENHAVN,17/05/2021,3.9,Alimentation
+CARREFOUR MARKET VILLEURBA ,14/05/2021,135.24,Alimentation
+DES ARTS VILLEURBANNE,14/05/2021,6.0,Habitation
+DES ARTS VILLEURBANNE,14/05/2021,3.6,Habitation
+DES ARTS VILLEURBANNE,14/05/2021,3.6,Habitation
+DES ARTS VILLEURBANNE,14/05/2021,2.0,Habitation
+DES ARTS VILLEURBANNE,14/05/2021,2.0,Habitation
+DES ARTS VILLEURBANNE,14/05/2021,1.0,Habitation
+ARICI VILLEURBANNE,12/05/2021,3.0,Alimentation
+CARREFOUR MARKET VILLEURBA ,11/05/2021,21.91,Alimentation
+LA FRANCAISE DES BOULOGNE,07/05/2021,5.0,Loisirs
+MUTUELLE UNEO UNEO/,06/05/2021,35.36,Santé/Bien être
+UBER * EATS PENDING help.u ,03/05/2021,19.26,Alimentation
+VIR INST vers ARLIM GESTION DONT CHARGES : ,01/05/2021,400.0,Habitation
+S.L.T.C. LYON,29/04/2021,32.5,Transports
+Bouygues Telecom ,27/04/2021,24.99,Communications
+BlaBlaCar BlaBlaCar Paris,26/04/2021,15.5,Transports
+WEB Maman FETE DES MERES - ,22/04/2021,17.9,Autres
+WWW.T,21/04/2021,41.9,Loisirs
+SIBILIA LYON,19/04/2021,21.85,Autres
+MONOPRIX VILLEURBANNE,19/04/2021,13.07,Alimentation
+SAVEURS ET DECOU LYON ,19/04/2021,10.04,Autres
+BOUL DE LA HALLE LYON,19/04/2021,5.2,Autres
+LA FRANCAISE DES BOULOGNE,19/04/2021,5.0,Loisirs
+BlaBlaCar Paris,15/04/2021,15.5,Transports
+BANE LAO VILLEURBANNE,15/04/2021,10.93,Alimentation
+PHIE CONDORCET VILLEURBANN ,13/04/2021,6.0,Santé/Bien être
+TENUE DE COMPTE ,12/04/2021,3.3,Autres
+CARREFOUR MARKET VILLEURBA ,12/04/2021,167.19,Alimentation
+ARICI VILLEURBANNE,12/04/2021,5.0,Alimentation
+AMAZON PAYMENTS PAYLI,08/04/2021,26.18,Autres
+MUTUELLE UNEO UNEO/,07/04/2021,35.36,Santé/Bien être
+CARREFOUR MARKET VILLEURBA ,06/04/2021,51.16,Alimentation
+SumUp *HAYTECH Infor VILLE ,02/04/2021,20.0,Loisirs
+BURGER KING LYON ,02/04/2021,9.7,Loisirs
+VIR INST vers ARLIM GESTION CHARGES COMPRISES (,01/04/2021,400.0,Habitation
+S.L.T.C. LYON,01/04/2021,32.5,Transports
+CEF VILLEURBANNE,29/03/2021,41.89,Habitation
+IZLY SMONEY PARIS,29/03/2021,10.0,Alimentation
+Bouygues Telecom ,29/03/2021,24.99,Communications
+BANE LAO VILLEURBANNE,25/03/2021,40.98,Alimentation
+MGP*Ulule SAS Paris,25/03/2021,18.0,Autres
+CARREFOUR MARKET VILLEURBA ,23/03/2021,6.0,Alimentation
+CARREFOUR MARKET VILLEURBA ,22/03/2021,35.8,Alimentation
+DECITRE PART DIEU LYON ,22/03/2021,24.9,Loisirs
+BURGERS DE PAPA VILLEURBAN ,22/03/2021,9.9,Loisirs
+Too Good To Go KOEBENHAVN,17/03/2021,3.99,Alimentation
+BP VILLEURB FACU,17/03/2021,2.42,Alimentation
+DES ARTS VILLEURBANNE,17/03/2021,1.0,Habitation
+BOULANGERIE CIZA VILLEURBA ,16/03/2021,8.1,Alimentation
+VIR INST vers ARLIM GESTION - ,09/03/2021,284.0,Habitation
+JustEat PARIS,09/03/2021,14.9,Alimentation
+JustEat PARIS,09/03/2021,9.4,Alimentation
+CARREFOUR MARKET VILLEURBA ,08/03/2021,133.45,Alimentation
+LDLC COM VILLEURBAN,08/03/2021,69.85,Loisirs
+MUTUELLE UNEO UNEO/,05/03/2021,35.36,Santé/Bien être
+S.L.T.C. LYON,01/03/2021,32.5,Transports
+Bouygues Telecom ,01/03/2021,24.99,Communications
+CROUSLYON AC ,22/02/2021,7.0,Autres
+BlaBlaCar BlaBlaCar Paris,19/02/2021,15.5,Transports
+LA FRANCAISE DES BOULOGNE,19/02/2021,5.0,Loisirs
+SUPERMARCHE ASIE LYON,16/02/2021,13.55,Alimentation
+VOISIN LYONBELLECO /,16/02/2021,10.14,Autres
+CARREFOUR MARKET VILLEURBA ,15/02/2021,21.66,Alimentation
+BlaBlaCar BlaBlaCar Paris,15/02/2021,14.25,Transports
+BURGER KING LYON ,15/02/2021,9.1,Loisirs
+DES ARTS VILLEURBANNE,15/02/2021,2.0,Habitation
+S.L.T.C. LYON,12/02/2021,37.5,Transports
+S.L.T.C. LYON,11/02/2021,15.1,Transports
+CARREFOUR MARKET VILLEURBA ,08/02/2021,52.6,Alimentation
+IZLY SMONEY PARIS,08/02/2021,20.0,Alimentation
+PHARMACIE BOY VU VILLEURBA ,08/02/2021,11.9,Santé/Bien être
+LA FRANCAISE DES BOULOGNE,08/02/2021,5.0,Loisirs
+Too Good To Go KOEBENHAVN,08/02/2021,3.99,Alimentation
+Too Good To Go KOEBENHAVN,08/02/2021,3.99,Alimentation
+VIR INST vers Tanguy COSMAO ,07/02/2021,1.0,Autres
+CARREFOUR MARKET VILLEURBA ,05/02/2021,21.93,Alimentation
+VIR INST vers Jules LE PRIOL HEN ,05/02/2021,16.51,Habitation
+VIR INST vers ARLIM GESTION ,05/02/2021,360.0,Habitation
+MUTUELLE UNEO UNEO/,05/02/2021,35.36,Santé/Bien être
+BP VILLEURB FACU,04/02/2021,5.71,Alimentation
+VIR INST vers ARLIM GESTION ,04/02/2021,300.0,Habitation
+BP VILLEURB FACU,02/02/2021,4.33,Alimentation
+CARREFOUR LYON ,01/02/2021,40.41,Alimentation
+BOULANGERIE LE T VILLEURBA ,01/02/2021,24.0,Autres
+BANE LAO VILLEURBANNE,01/02/2021,10.38,Alimentation
+DES ARTS VILLEURBANNE,01/02/2021,8.5,Habitation
+DES ARTS VILLEURBANNE,01/02/2021,3.6,Habitation
+DES ARTS VILLEURBANNE,01/02/2021,2.0,Habitation
+DES ARTS VILLEURBANNE,01/02/2021,2.0,Habitation
+VIR INST vers ARLIM GESTION ,31/01/2021,150.0,Habitation
+CARREFOUR MARKET VILLEURBA ,29/01/2021,7.77,Alimentation
+BP VILLEURB FACU,29/01/2021,3.57,Alimentation
+SODAP CONDRIEU,27/01/2021,5.0,Alimentation
+Bouygues Telecom ,27/01/2021,24.99,Communications
+LA VIEILLE CONSE LYON,26/01/2021,24.9,Autres
+CARREFOUR MARKET VILLEURBA ,25/01/2021,85.26,Alimentation
+S.L.T.C. LYON,25/01/2021,15.1,Transports
+UBER *EATS HELP.UBER.COM,25/01/2021,14.2,Alimentation
+Too Good To Go KOEBENHAVN,25/01/2021,4.5,Alimentation
+SODAP CONDRIEU,20/01/2021,5.0,Alimentation
+DES ARTS VILLEURBANNE,18/01/2021,3.6,Habitation
+DES ARTS VILLEURBANNE,18/01/2021,3.6,Habitation
+DES ARTS VILLEURBANNE,18/01/2021,2.0,Habitation
+DES ARTS VILLEURBANNE,18/01/2021,2.0,Habitation
+TENUE DE COMPTE ,12/01/2021,3.15,Autres
+CARREFOUR MARKET VILLEURBA ,12/01/2021,18.08,Alimentation
+CARREFOUR MARKET VILLEURBA ,11/01/2021,70.57,Alimentation
+Too Good To Go KOEBENHAVN,11/01/2021,4.0,Alimentation
+MUTUELLE UNEO UNEO/,06/01/2021,42.56,Santé/Bien être
+DEJBOX MARCQ EN BAROEUL,05/01/2021,6.9,Alimentation
+BP VILLEURB FACU,05/01/2021,2.15,Alimentation
+BlaBlaCar ,04/01/2021,20.5,Transports
+WEB Adrien Anniversaire C ,02/01/2021,2.17,Autres
+Voisin Lyonmagvirt /,30/12/2020,30,Autres
+Amzn Mktp UK*MJ,29/12/2020,37.13,Loisirs
+Chèque ,29/12/2020,30,Autres
+Bouygues Telecom,28/12/2020,24.99,Communications
+Voisin Lyonpartdie /,21/12/2020,31.25,Autres
+Starbucks Lyon,21/12/2020,3.15,Alimentation
+Phie Part-dieu Lyon,21/12/2020,15.28,Santé/Bien être
+Mcdonalds ,21/12/2020,7.75,Loisirs
+Fnac Lyon Cedex ,21/12/2020,37.1,Autres
+Eram ,21/12/2020,49.99,Habillement
+Des Arts Villeurbanne,21/12/2020,2,Habitation
+Des Arts Villeurbanne,21/12/2020,3.6,Habitation
+Des Arts Villeurbanne,21/12/2020,6,Habitation
+Des Arts Villeurbanne,21/12/2020,2,Habitation
+Decitre Lpa Lyon,21/12/2020,21.3,Autres
+Bp Villeurb Facu,18/12/2020,1.71,Alimentation
+Blablacar ,18/12/2020,14.25,Transports
+Too Good To Go Koebenhavn,17/12/2020,3.99,Alimentation
+Sodap Condrieu,15/12/2020,5,Alimentation
+Sodap Condrieu,15/12/2020,5,Alimentation
+Bp Villeurb Facu,15/12/2020,1.67,Alimentation
+Arici Villeurbanne,15/12/2020,8.2,Alimentation
+Arici Villeurbanne,15/12/2020,1.7,Alimentation
+Vir Inst vers Simon,14/12/2020,2,Autres
+Pizza Carloni Villeurbanne ,11/12/2020,12.5,Alimentation
+UNEO/,07/12/2020,34.94,Santé/Bien être
+Des Arts Villeurbanne,07/12/2020,2,Habitation
+Des Arts Villeurbanne,07/12/2020,3.6,Habitation
+Des Arts Villeurbanne,07/12/2020,6,Habitation
+Des Arts Villeurbanne,07/12/2020,2,Habitation
+Carrefour Market Villeurba ,07/12/2020,57.43,Alimentation
+Carrefour Market Villeurba ,04/12/2020,13.93,Alimentation
+Carrefour Market Villeurba ,02/12/2020,7.79,Alimentation
+Sodap Condrieu,01/12/2020,5,Alimentation
+Bp Villeurb Facu,01/12/2020,1.76,Alimentation
+La Francaise Des Boulogne,30/11/2020,5,Loisirs
+Helloasso Lw Montreuil,30/11/2020,6,Autres
+Bouygues Telecom,27/11/2020,24.99,Communications
+S.l.t.c. Lyon,26/11/2020,30.2,Transports
+Too Good To Go Koebenhavn,24/11/2020,3.99,Alimentation
+Carrefour Market Villeurba ,24/11/2020,48.92,Alimentation
+Foodcheri Paris,23/11/2020,11,Alimentation
+Des Arts Villeurbanne,23/11/2020,2,Habitation
+Des Arts Villeurbanne,23/11/2020,2,Habitation
+Des Arts Villeurbanne,23/11/2020,3.6,Habitation
+Des Arts Villeurbanne,23/11/2020,3.6,Habitation
+Arici Villeurbanne,19/11/2020,8.5,Alimentation
+Carrefour Market Villeurba ,16/11/2020,22.03,Alimentation
+Too Good To Go Koebenhavn,13/11/2020,4.99,Alimentation
+Des Arts Villeurbanne,09/11/2020,3.6,Habitation
+Des Arts Villeurbanne,09/11/2020,6,Habitation
+Des Arts Villeurbanne,09/11/2020,2,Habitation
+Des Arts Villeurbanne,09/11/2020,2,Habitation
+Carrefour Market Villeurba ,09/11/2020,28.84,Alimentation
+Bricorama Villeurbanne,09/11/2020,15.65,Habitation
+Mutuelle Uneo,05/11/2020,34.94,Santé/Bien être
+Sodap Condrieu,04/11/2020,5,Alimentation
+Sodap Condrieu,04/11/2020,5,Alimentation
+Carrefour Market Villeurba ,03/11/2020,77.47,Alimentation
+Toogoodtogo ,02/11/2020,4,Alimentation
+Woko Lyon,30/10/2020,16.5,Loisirs
+Pizza Carloni Villeurbanne ,30/10/2020,12.5,Alimentation
+Sodap Condrieu,28/10/2020,5,Alimentation
+Bouygues Telecom,27/10/2020,24.99,Communications
+Too Good To Go Koebenhavn,27/10/2020,6,Alimentation
+Fnac Lyon Cedex ,27/10/2020,30,Autres
+Carrefour Lyon ,27/10/2020,44.34,Alimentation
+Uber *eats Help.uber.com,26/10/2020,12.54,Alimentation
+Sandrine Nougat Tassin La,26/10/2020,9,Alimentation
+Des Arts Villeurbanne,26/10/2020,2,Habitation
+Des Arts Villeurbanne,26/10/2020,2,Habitation
+Des Arts Villeurbanne,26/10/2020,3.6,Habitation
+Des Arts Villeurbanne,26/10/2020,3.6,Habitation
+Des Arts Villeurbanne,26/10/2020,3.6,Habitation
+Carrefour Market Villeurba ,20/10/2020,67.77,Alimentation
+Pizza Carloni Villeurbanne ,19/10/2020,11.5,Alimentation
+Decitre Bellecour Lyon ,19/10/2020,10.95,Loisirs
+Casernedespains Ste Foy Le ,19/10/2020,1,Alimentation
+Casernedespains Ste Foy Le ,19/10/2020,5,Alimentation
+Bp Villeurb Facu,19/10/2020,3.43,Alimentation
+suelta verde Lyon ,19/10/2020,19.5,Loisirs
+Bane Lao Villeurbanne,16/10/2020,12.11,Loisirs
+S.l.t.c. Lyon,15/10/2020,30.2,Transports
+Pharmacie Boy Vu Villeurba ,15/10/2020,23.9,Santé/Bien être
+Tenue De Compte,14/10/2020,3.15,Autres
+Bp Villeurb Facu,13/10/2020,3.52,Alimentation
+Insa Le Galilee ,12/10/2020,50,Alimentation
+Franprix ,12/10/2020,2.9,Alimentation
+Des Arts Villeurbanne,12/10/2020,2,Habitation
+Des Arts Villeurbanne,12/10/2020,2,Habitation
+Des Arts Villeurbanne,12/10/2020,3.6,Habitation
+Des Arts Villeurbanne,12/10/2020,3.6,Habitation
+Decitre Bellecour Lyon ,12/10/2020,38,Loisirs
+DAB CA Villeurbanne,08/10/2020,30,Autres
+Le Fantome De L' Romagnat,07/10/2020,12,Loisirs
+Burgers De Papa Lyon Er,07/10/2020,10.9,Loisirs
+Bp Villeurb Facu,07/10/2020,1,Alimentation
+Mutuelle Uneo,05/10/2020,34.94,Santé/Bien être
+Le Fournil Lyon ,05/10/2020,6.85,Alimentation
+Carrefour Lyon ,05/10/2020,47.83,Alimentation
+Snc Cote Villeurbanne,01/10/2020,9,Loisirs
+Bp Villeurb Facu,30/09/2020,3.77,Alimentation
+Amazon Payments PAYLI,30/09/2020,19.99,Autres
+Sodap Condrieu,29/09/2020,0.35,Alimentation
+Sodap Condrieu,29/09/2020,0.35,Alimentation
+S.l.t.c. Lyon,29/09/2020,30.2,Transports
+Carrefour Market Villeurba ,29/09/2020,34.18,Alimentation
+Carrefour Market Villeurba ,29/09/2020,24.01,Alimentation
+Bouygues Telecom,28/09/2020,24.99,Communications
+Violette Berling Lyon,28/09/2020,9.68,Alimentation
+Des Arts Villeurbanne,28/09/2020,3.6,Habitation
+Des Arts Villeurbanne,28/09/2020,3.6,Habitation
+Des Arts Villeurbanne,28/09/2020,2,Habitation
+Des Arts Villeurbanne,28/09/2020,2,Habitation
+L Avenue ,23/09/2020,14.4,Loisirs
+S Et G Villeurbanne,21/09/2020,8,Alimentation
+Phie Porte Des A St Priest ,21/09/2020,9.55,Santé/Bien être
+Kiabi St Priest,21/09/2020,25,Habillement
+Izly/s-money Paris,21/09/2020,20,Alimentation
+Insa Le Galilee ,21/09/2020,50,Alimentation
+Auchan St Priest St Genis,21/09/2020,46.09,Alimentation
+Steak'n Shake Lyon,18/09/2020,16.2,Loisirs
+Dejbox Marcq En Baroeul,18/09/2020,10.8,Alimentation
+Chèque ,18/09/2020,17.4,Autres
+Republic Pressin Villeurba ,17/09/2020,35,Habitation
+Univers Cafe Villeurbanne,16/09/2020,5.5,Loisirs
+Des Arts Villeurbanne,16/09/2020,2,Habitation
+Des Arts Villeurbanne,16/09/2020,3.6,Habitation
+Celio,15/09/2020,125.97,Habillement
+Carrefour Market Villeurba ,15/09/2020,50.33,Alimentation
+Woko Lyon,14/09/2020,5.5,Loisirs
+Sm Casino Ville ,14/09/2020,6.78,Alimentation
+S.l.t.c. Lyon,14/09/2020,30.2,Transports
+Decitre Lyon,14/09/2020,7.49,Loisirs
+Virement Web Maman Anniv Jl,13/09/2020,25,Autres
+Subway Villeurbanne,11/09/2020,7.6,Loisirs
+Sm Casino Ville ,11/09/2020,2.87,Santé/Bien être
+Radisson Blu Ho Lyon ,08/09/2020,16.5,Loisirs
+Mutuelle Uneo,07/09/2020,34.94,Santé/Bien être
+Carte Dino St Cyr Au Mon,07/09/2020,17.39,Loisirs
+Blablacar ,07/09/2020,13.75,Transports
+Blablacar ,02/09/2020,17.5,Transports
+Blablacar ,02/09/2020,17.5,Transports
+Boulangerie Ciza Villeurba ,31/08/2020,9.5,Alimentation
+Bouygues Telecom,27/08/2020,24.99,Communications
+Blablacar Paris,27/08/2020,13.75,Transports
+Blablacar ,27/08/2020,16.25,Transports
+La Francaise Des Boulogne,26/08/2020,5,Loisirs
+Virement Web Maman ,19/08/2020,200,Autres
+SNCF Internet Saint Denis,14/08/2020,12.5,Transports
+Virement Web Maman GSM,10/08/2020,13.4,Communications
+Lw-weddingwire Montreuil,10/08/2020,26,Autres
+Amazon Payments PAYLI,10/08/2020,73.7,Autres
+Mutuelle Uneo,06/08/2020,34.94,Santé/Bien être
+Polytech Alumni Paris,03/08/2020,5,Autres
+Bouygues Telecom,27/07/2020,24.99,Communications
+Tenue De Compte,23/07/2020,3.15,Autres
+SNCF Internet Paris ,07/07/2020,21.5,Transports
+Mutuelle Uneo,06/07/2020,40.94,Santé/Bien être
+SNCF Versailles,06/07/2020,1.9,Transports
+SNCF Versailles,06/07/2020,10.95,Transports
+La Francaise Des Boulogne,06/07/2020,5,Loisirs
+Des Arts Villeurbanne,01/07/2020,1,Habitation
+Des Arts Villeurbanne,01/07/2020,3.6,Habitation
+Des Arts Villeurbanne,01/07/2020,1,Habitation
+Des Arts Villeurbanne,01/07/2020,1,Habitation
+Des Arts Villeurbanne,01/07/2020,1,Habitation
+Des Arts Villeurbanne,01/07/2020,3.6,Habitation
+Des Arts Villeurbanne,01/07/2020,1,Habitation
+Vib's LYONX,30/06/2020,59.99,Habillement
+S.l.t.c. Lyon,30/06/2020,15.1,Transports
+Changemavitre Com Lyon ,30/06/2020,69,Communications
+Carrefour Market Villeurba ,30/06/2020,3.85,Alimentation
+Blablacar ,30/06/2020,12,Transports
+Amazon Eu SARL PAYLI,30/06/2020,27.01,Loisirs
+ninkasi Lyon,30/06/2020,14.65,Loisirs
+Bouygues Telecom,29/06/2020,24.99,Communications
+Mcdonalds ,29/06/2020,15.55,Loisirs
+Carrefour Market Villeurba ,29/06/2020,34.56,Alimentation
+Miss Saigon Lyon ,26/06/2020,14.7,Loisirs
+Uber Eats Help.uber.c help ,25/06/2020,5.74,Alimentation
+Ubereats Nl Amsterdam,25/06/2020,1,Autres
+Carrefour Market Villeurba ,25/06/2020,16.69,Alimentation
+DABVilleurbanne,24/06/2020,40,Autres
+S.l.t.c. Lyon,24/06/2020,15.1,Transports
+Des Arts Villeurbanne,24/06/2020,3.6,Habitation
+Des Arts Villeurbanne,24/06/2020,6,Habitation
+Des Arts Villeurbanne,24/06/2020,1,Habitation
+Des Arts Villeurbanne,24/06/2020,1,Habitation
+Des Arts Villeurbanne,24/06/2020,3.6,Habitation
+Paypal ,18/06/2020,67,Loisirs
+Fourniture Carte Débit Mcd I,16/06/2020,21.5,Autres
+Mutuelle Uneo,05/06/2020,34.94,Santé/Bien être
+Bouygues Telecom,27/05/2020,24.99,Communications
+Helloasso Lw Montreuil,22/05/2020,2.01,Autres
+Abo Magazines Montreuil,18/05/2020,19,Autres
+Mutuelle Uneo,06/05/2020,34.94,Santé/Bien être
+Crous/s Money Paris,04/05/2020,7,Autres
+Bouygues Telecom,27/04/2020,24.99,Communications
+Tenue De Compte,09/04/2020,3.15,Autres
+Mutuelle Uneo,06/04/2020,34.94,Santé/Bien être
+Bouygues Telecom,27/03/2020,24.99,Communications
+SNCF Internet Paris ,16/03/2020,20.2,Transports
+Carrefour Market Villeurba ,16/03/2020,51.84,Alimentation
+SNCF Internet Paris ,09/03/2020,20.2,Transports
+UNEO/,05/03/2020,34.94,Santé/Bien être
+SNCF Internet Saint Denis,02/03/2020,20.2,Transports
+Des Arts Villeurbanne,02/03/2020,3.6,Habitation
+Des Arts Villeurbanne,02/03/2020,1,Habitation
+Des Arts Villeurbanne,02/03/2020,1,Habitation
+Des Arts Villeurbanne,02/03/2020,1,Habitation
+Des Arts Villeurbanne,02/03/2020,3.6,Habitation
+Des Arts Villeurbanne,02/03/2020,1,Habitation
+Rilleux ,28/02/2020,23.89,Alimentation
+Maison Victoire Lyon,28/02/2020,1,Alimentation
+Gast Charcuterie Lyon ,28/02/2020,20.9,Autres
+Cerise Et Potiro Lyon,28/02/2020,8.18,Alimentation
+Carrefour Market Villeurba ,28/02/2020,48.25,Alimentation
+Burger King Lyon ,28/02/2020,1,Loisirs
+Bouygues Telecom,27/02/2020,24.99,Communications
+Top Achat St Ouen,27/02/2020,1 268.91,Autres
+Insa Le Galilee Villeurban ,27/02/2020,50,Alimentation
+Qdc Services Lyon,24/02/2020,15.5,Loisirs
+Izly/s-money Paris,24/02/2020,37.5,Alimentation
+Vib's LYONX,17/02/2020,65.98,Habillement
+Des Arts Villeurbanne,17/02/2020,6,Habitation
+Des Arts Villeurbanne,17/02/2020,1,Habitation
+Des Arts Villeurbanne,17/02/2020,3.6,Habitation
+Des Arts Villeurbanne,17/02/2020,1,Habitation
+Des Arts Villeurbanne,17/02/2020,1,Habitation
+Des Arts Villeurbanne,17/02/2020,1,Habitation
+Carrefour Market Villeurba ,17/02/2020,45.67,Alimentation
+Carrefour Lyon,17/02/2020,7.92,Alimentation
+Patisserie Chocolat Lyon ,14/02/2020,6.5,Alimentation
+La Halle Villeur,12/02/2020,24.99,Habillement
+Bp Villeurb Facu,11/02/2020,12.15,Alimentation
+Fournil Opera Lyon,10/02/2020,5.2,Alimentation
+Decathlon ,10/02/2020,18,Autres
+Izly/s-money Paris,06/02/2020,37.5,Alimentation
+Insa Le Galilee Villeurban ,06/02/2020,50,Alimentation
+Carrefour Market Villeurba ,06/02/2020,3.16,Alimentation
+UNEO/,05/02/2020,34.94,Santé/Bien être
+Veng Hour Lyon Cedex ,05/02/2020,16.2,Loisirs
+Celio,05/02/2020,49.99,Habillement
+Tandooretwok Lyon,03/02/2020,22,Loisirs
+S.l.t.c. Lyon,03/02/2020,30.2,Transports
+Des Arts Villeurbanne,03/02/2020,1,Habitation
+Des Arts Villeurbanne,03/02/2020,3.6,Habitation
+Des Arts Villeurbanne,03/02/2020,1,Habitation
+Des Arts Villeurbanne,03/02/2020,1,Habitation
+Des Arts Villeurbanne,03/02/2020,3.6,Habitation
+Des Arts Villeurbanne,03/02/2020,1,Habitation
+Virement Web Paul,31/01/2020,6,Autres
+Bouygues Telecom,27/01/2020,24.99,Communications
+Carrefour Market Villeurba ,27/01/2020,61.56,Alimentation
+Izly/s-money Paris,24/01/2020,37.5,Alimentation
+DAB GAB Ext Grand Cl ,23/01/2020,20,Autres
+Cuol Lyon,22/01/2020,50,Santé/Bien être
+Des Arts Villeurbanne,20/01/2020,1,Habitation
+Des Arts Villeurbanne,20/01/2020,3.6,Habitation
+Des Arts Villeurbanne,20/01/2020,1,Habitation
+Des Arts Villeurbanne,20/01/2020,1,Habitation
+Des Arts Villeurbanne,20/01/2020,1,Habitation
+Des Arts Villeurbanne,20/01/2020,3.6,Habitation
+Lepartcaroline Lyon ,17/01/2020,39,Santé/Bien être
+Insa Le Galilee Villeurban ,16/01/2020,50,Alimentation
+Bp Villeurb Facu,14/01/2020,3.73,Alimentation
+Izly/s-money Paris,10/01/2020,37.5,Alimentation
+Tenue De Compte,08/01/2020,3.15,Autres
+Virement Web Adrien Anniv Charlott,07/01/2020,2.85,Autres
+Mutuelle Uneo,07/01/2020,40.94,Santé/Bien être
+Carrefour Market Villeurba ,07/01/2020,54.98,Alimentation
