@@ -74,7 +74,7 @@ function drawHistogram() {
                 .join("text")
                 .attr('x', (d,i) => xScale(i) + xScale.bandwidth()/2 + xPadding)
                 .attr('y', (d) => yScale(d))
-                .attr('dy', '-0.5vh')
+                .attr('dy', '-3px')
                 .attr("class", "barlabel")
                 .text((d) => d.toFixed(0))
 
@@ -113,7 +113,7 @@ function drawHistogram() {
                 .append('text')
                 .attr('x', xScale.range()[0] + xPadding)
                 .attr('y', yScale.range()[1])
-                .attr('dy', '-1vh')
+                .attr('dy', '-5px')
                 .attr("class", "ylabel")
                 .text('Dépenses(€)')
 

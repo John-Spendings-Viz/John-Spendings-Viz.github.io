@@ -1,5 +1,6 @@
 /* Style général */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
 :root {
     --navbar-height: 50px;
@@ -32,15 +33,23 @@ body{
 }
 
 #navbar .navbar-items {
+    padding-left: 10px;
     list-style: none;
     display: flex;
     justify-content: end;
+    font-family: "Secular One";
 }
 
 #navbar #navbar-title {
     margin-right: auto;
-    font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;
+}
+
+#navbar #navbar-title::before {
+    content: "\f51e   ";
+    font-family: "Font Awesome 5 Free";
+    font-size: 20px;
+    font-weight: 900;
 }
 
 #navbar .navbar-items > * {
@@ -223,7 +232,7 @@ body{
 }
 
 #options .option-name {
-    line-height: 6.5vh; /* centre verticalement les titre */
+    line-height: 50px; /* centre verticalement les titre */
     padding-right: 0.7vw;
 }
 
@@ -231,6 +240,7 @@ body{
     border: 0.3vw solid black;
     float: left;
     transition: 0.5s;
+    cursor: pointer;
 }
 
 #options .option-choices > *:not(:last-child) {
@@ -259,6 +269,11 @@ body{
 #tooltip ul {
     list-style-type: none;
     padding: 0;
+}
+
+#treemap {
+    transition: all 0.5s;
+    cursor: pointer;
 }
 
 #treemap rect {
@@ -305,7 +320,7 @@ body{
 
 #home-john {
     padding-top: 5vh;
-    padding-left: 3vw;
+    padding-left: 10vw;
     width: 30%;
     filter: drop-shadow(5px 5px 2px gray);
 }

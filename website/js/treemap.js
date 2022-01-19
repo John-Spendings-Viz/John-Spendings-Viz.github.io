@@ -33,6 +33,7 @@ function drawRectTreeMap(root)
         .attr('y', d => d.y0)
         .attr('width', d => d.x1 - d.x0)
         .attr('height', d => d.y1 - d.y0)
+        .attr("category", d => d.id)
         .transition()
         .delay(100)
         .duration(500)
@@ -48,8 +49,9 @@ function drawRectTreeMap(root)
         .selectAll("g")
         .on("click", function (e, d) {
             let oldCategory = currentCategory
-            updateCurrentCategory (d.data.category)
-            updateSelectedCategory (this.children [0], oldCategory)
+            let newCategory = d.data.category
+            updateCurrentCategory (newCategory)
+            updateSelectedCategory (oldCategory)
             updateHistogram()
         })
         .on('mousemove', function (e, d) {
@@ -155,6 +157,7 @@ function updateTreeMap() {
         drawRectTreeMap(root)
         drawLabelsTreeMap(root)
     }
+    updateSelectedCategory (currentCategory)
     return root
 }
 

@@ -21,11 +21,6 @@ let colorScale = d3
     .scaleQuantize()
     .domain([-0.7, 0.7])
     .range(["#d7191c", "#fdae61", "#f1f175", "#9dcc4d", "#1a9641"].reverse())
-//    .range(["#2c7bb6", "#abd9e9", "#ffffbf", "#fdae61", "#d7191c"])
-
-/*let colorScale = d3.scaleSequential()
-    .interpolator(d3.interpolateRdYlGn)
-    .domain([0.7, -0.7])*/
 
 let data = {}
 
@@ -47,29 +42,25 @@ function updateCurrentCategory (newCategory){
 }
 
 function updateCurrentYear (newYear) {
-    if (currentYear === newYear) {
-        currentYear = "all"
-    } else {
-        currentYear = newYear
-    }
+    currentYear = newYear
 }
 
 function updateSelectedYear (oldYear) {
-    if (oldYear !== "all") document.querySelector ("#option-year-" + oldYear).classList.toggle ("option-selected")
-    if (currentYear !== "all") document.querySelector ("#option-year-" + currentYear).classList.toggle ("option-selected")
+    document.querySelector ("#option-year-" + oldYear).classList.toggle ("option-selected")
+    document.querySelector ("#option-year-" + currentYear).classList.toggle ("option-selected")
 }
 
 function updateSelectedComparison () {
     document.querySelectorAll ("#option-comparison .option-choices > *").forEach (e => e.classList.toggle ("option-selected"))
 }
 
-function updateSelectedCategory (rect, oldCategory) {
-    if (oldCategory !== "all") {
+function updateSelectedCategory (oldCategory) {
+    if (oldCategory !== "all" && oldCategory !== currentCategory) {
         document.querySelector ("#treemap rect.category-selected").classList.remove ("category-selected")
-        rect.classList.remove ("category-not-selected")
     }
     if (currentCategory !== "all") {
-        rect.classList.add ("category-selected")
+        document.querySelector (`#treemap rect[category='${currentCategory}']`).classList.remove ("category-not-selected")
+        document.querySelector (`#treemap rect[category='${currentCategory}']`).classList.add ("category-selected")
         document.querySelectorAll ("#treemap rect:not(.category-selected)").forEach (e => e.classList.add ("category-not-selected"))
     } else {
         document.querySelectorAll ("#treemap rect").forEach (e => e.classList.remove ("category-not-selected"))

@@ -47,16 +47,20 @@ document.addEventListener ("DOMContentLoaded", () => {
 
             d3.selectAll("#option-year .option-choices > *").on("click", function () {
                 let oldYear = currentYear
-                let newYear = +this.textContent
-                updateCurrentYear(newYear)
-                updateSelectedYear(oldYear)
-                updateTreeMap()
-                updateHistogram()
+                let newYear = this.id.split ("-") [2] // On récupère la 2e partie de l'id du bouton qui contient l'année
+                if (oldYear != newYear) {
+                    updateCurrentYear(newYear)
+                    updateSelectedYear(oldYear)
+                    updateTreeMap()
+                    updateHistogram()
+                }
             })
             //
             d3.selectAll("#option-comparison .option-choices > *").on("click", function () {
                 updateSelectedComparison ()
-                updateCurrentComparison (this.id.split ("-") [2]) // c'est temporaire
+                let newComparisonButton = document.querySelector ("#option-comparison .option-selected")
+                let newComparison = newComparisonButton.id.split ("-") [2]
+                updateCurrentComparison (newComparison)
                 updateTreeMap()
                 updateHistogram()
             })
@@ -64,7 +68,11 @@ document.addEventListener ("DOMContentLoaded", () => {
         })
     })
 
-    AOS.init();
+    AOS.init({
+        delay: 300,
+        duration: 800,
+        once: true,
+    });
 
     window.onresize = function () {
         updateTreeMap()
