@@ -38,7 +38,6 @@ function drawRectTreeMap(root)
         .delay(100)
         .duration(500)
         .on('start',function(){ d3.select(this).style("opacity", "0.2")})
-        .style("stroke", "black")
         .style("fill", d => colorScale(
             (d.data.totalExpenses - (expenses * d.data[proportionComparison] / 100)) /
             (expenses * d.data[proportionComparison] / 100))
