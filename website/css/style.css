@@ -400,3 +400,7 @@ description-details-title {
     flex-direction: column;
     text-align: center;
 }
+
+.main-container {
+    display: flex;
+}

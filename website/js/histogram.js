@@ -16,6 +16,8 @@ function drawHistogram() {
         .attr('width', histWidth)
         .attr('height', currentYear === 'all' ? 0.5*histHeight:histHeight)
         .each(function(d) {
+
+            /************************************ Préparation des variables *******************************************/
             const width = 0.9*histWidth;
             const height = currentYear === 'all' ? 0.5*histHeight:histHeight;
 
@@ -39,6 +41,9 @@ function drawHistogram() {
             let expenses_month = (expenses * (proportion / 100)) / 12
             let maximum = d3.max(databyMonth.concat(expenses_month))
 
+
+            /********************************************** Echelle X et Y*********************************************/
+
             const xScale = d3.scaleBand()
                 .domain(d3.range(databyMonth.length))
                 .range([0.1*width, 0.9*width])
@@ -50,7 +55,7 @@ function drawHistogram() {
 
             let svg = d3.select(this)
 
-            // Bar Chart
+            /********************************************** Bar Chart *************************************************/
             svg
                 .append('g')
                 .selectAll('rect')
@@ -66,7 +71,7 @@ function drawHistogram() {
                     )
                 )
 
-            // Label bar
+            /********************************************** Label Bar Chart *******************************************/
             svg
                 .selectAll('g')
                 .selectAll("text")
@@ -79,7 +84,7 @@ function drawHistogram() {
                 .text((d) => d.toFixed(0))
 
 
-            // Ligne moyenne
+            /********************************************** Ligne moyenne *********************************************/
             svg
                 .select('g')
                 .append('line')
@@ -89,7 +94,7 @@ function drawHistogram() {
                 .attr('y2', yScale(expenses_month))
                 .style("opacity", 1.05*maximum >= expenses_month? 0.5:0)
 
-            // Label moyenne
+            /********************************************** Label moyenne *********************************************/
             svg
                 .select('g')
                 .append('text')
@@ -98,7 +103,7 @@ function drawHistogram() {
                 .attr("class", "meanlabel")
                 .text(comparaison)
 
-            //Legende Axe X
+            /********************************************** Legende Axe X *********************************************/
             svg
                 .select('g')
                 .append('text')
@@ -107,7 +112,7 @@ function drawHistogram() {
                 .attr("class", "xlabel")
                 .text(d)
 
-            //Legende Axe Y
+            /********************************************** Legende Axe Y *********************************************/
             svg
                 .select('g')
                 .append('text')
@@ -121,7 +126,7 @@ function drawHistogram() {
             svg.append('g').call(yAxis)
             svg.node();
 
-
+            /********************************************** Axe X *****************************************************/
             function xAxis(g) {
                 g.attr('transform', `translate(${xPadding}, ${yScale.range()[0]})`)
                     .call(d3.axisBottom(xScale).tickFormat(i => months[i].slice(0, 3)
@@ -130,6 +135,7 @@ function drawHistogram() {
                     .attr('class',"xticks")
             }
 
+            /********************************************** Axe Y *****************************************************/
             function yAxis(g) {
                 g.attr('transform', `translate(${xScale.range()[0] + xPadding}, 0)`)
                     .call(d3.axisLeft(yScale).ticks(8, "f"))
