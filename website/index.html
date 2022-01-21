@@ -24,7 +24,7 @@
 			</ul>
 		</nav>
 		<div id="home" class="page-container">
-			<div id="home-john" data-aos="fade-right"><img src="img/john.png" width="60%" alt="john"/></div>
+			<div id="home-john" data-aos="fade-right"><img src="img/john.png" width="60%" alt="John" /></div>
 			<div id="home-details" data-aos="fade-left">
 				<h2>
 					<span id="home-details-title">Comment <em>optimiser</em> les dépenses de John ?</span>
@@ -42,17 +42,106 @@
 			</div>
 		</div>
 		<div id="description" class="page-container">
-			<div id="description-details" data-aos="fade-left">
+			<div id="description-details" data-aos="fade-in">
 				<h2>
 					<span id="description-details-title">Description des données et des visualisations</span>
 				</h2>
-				<div id="description-details-description">
-					<div>
-						<div class="description-icon"><i class="fas fa-database"></i></div>
-						<div>
+				<div class="description-details-description">
+					<div id="description-data">
+						<div class="description-title">
+							<div class="description-icon">
+								<i class="fas fa-database"></i>
+							</div>
+							<h3>Données</h3>
+						</div>
+						<div class="description-text">
 							<ul>
 								<li>
-									Source des données : Données bancaires d'un membre du groupe (anonyme)
+									Sources
+									<ul>
+										<li>Données bancaires d'un membre du groupe (anonyme → John) récupérées depuis le site de sa banque</li>
+										<li>Données de l'INSEE (voir <a href="#footer">footer</a>)</li>
+									</ul>
+								</li>
+								<li>
+									Transformation des données (relevés bancaires au format csv et pdf)
+									<ul>
+										<li><a href="https://tabula.technology/">Tabula</a> pour la transformation pdf → csv</li>
+										<li>Scripts Python (voir le fichier <a href="../data-processing/Data processing.ipynb">Data processing.ipynb</a> dans le dossier data-processing)</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="description-treemap">
+						<div class="description-title">
+							<div class="description-icon">
+								<i class="fas fa-signal"></i>
+							</div>
+							<h3>Treemap</h3>
+						</div>
+						<div class="description-text">
+							<ul>
+								<li>
+									Données principales
+									<ul>
+										<li>Total des dépenses de John par catégorie sur une ou plusieurs années</li>
+									</ul>
+								</li>
+								<li>
+									Conception
+									<ul>
+										<li><u>Taille d'un rectangle :</u> proportion des dépenses dans cette catégorie par rapport aux dépenses totales</li>
+										<li>
+											<u>Couleur :</u> comparer les dépenses de John par rapport aux dépenses des étudiants / Français<br />
+											Correspond au calcul :<br />
+											<img src="img/formula_rect_color.png" alt="Formule pour déterminer la couleur des rectangles" width="70%"><br />
+											Du rouge (<em>C'est John qui dépense le plus</em>) au vert (<em>C'est John qui dépense le moins</em>)
+										</li>
+										<li><u>Chiffres indiqués :</u> dépense totale de John dans cette catégorie et résultat du calcul (pourcentage) ci-dessus</li>
+									</ul>
+								</li>
+								<li>
+									Interactivité
+									<ul>
+										<li>Responsive</li>
+										<li><u>Clic sur une catégorie :</u> filtre sur la catégorie pour les histogrammes</li>
+										<li>Infobulle pour les rectangles vides (manque de place)</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="description-histogram">
+						<div class="description-title">
+							<div class="description-icon">
+								<i class="fas fa-signal"></i>
+							</div>
+							<h3>Histogramme</h3>
+						</div>
+						<div class="description-text">
+							<ul>
+								<li>
+									Données principales
+									<ul>
+										<li>Total des dépenses de John par année (pour une ou plusieurs catégories)</li>
+									</ul>
+								</li>
+								<li>
+									Conception
+									<ul>
+										<li>
+											<u>Chiffres indiqués :</u> dépenses de John par mois + moyenne des étudiants / Français en pointillés
+										</li>
+										<li><u>Couleurs :</u> même code couleur que pour le treemap</li>
+									</ul>
+								</li>
+								<li>
+									Interactivité
+									<ul>
+										<li>Responsive</li>
+										<li><u>Clic sur une catégorie dans le treemap :</u> filtrer les données des histogrammes pour cette catégorie</li>
+									</ul>
 								</li>
 							</ul>
 						</div>

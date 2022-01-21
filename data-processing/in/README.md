@@ -1,0 +1,1 @@
+**<u>Note :</u> `releves_bancaires_2020.csv` et `releves_bancaires_2021.csv` sont des fichiers d'exemple qui ne contiennent pas toutes les données produites dans le dossier `out`.* Ils servent uniquement à tester les scripts Python.
