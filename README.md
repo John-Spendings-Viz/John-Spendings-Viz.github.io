@@ -1,27 +1,27 @@
-# John's Spending Visualization
+# John's Spendings Visualization
 
-**Project made by**
+![thumbnail](C:\Users\Yann\Desktop\yann\Documents\Polytech\Cours\S9\Master IA\Dataviz\Projet\John-Spendings-Viz.github.io\thumbnail.png)
 
-Yann ALLE, Aurélien BRESSON, Dane Clauvis BADIEL, Yohan MICHELLAND
+**Project done by**
+
+Yann ALLE, Dane Clauvis BADIEL, Aurélien BRESSON, Yohan MICHELLAND
 
 **In the context of**
 
-Aurélien TABARD's course [Data Visualization](https://lyondataviz.github.io/teaching/lyon1-m2/2021/), during the UCBL1's AI Master 2
+Aurélien TABARD's course [Data Visualization](https://lyondataviz.github.io/teaching/lyon1-m2/2021/), during the second year of the AI Master's Degree at Université Lyon 1
 
-**With the objectif of**
+**With the aim to**
 
-Visualizing spending of a student (John) other multiple years.
-The 3 main goals of this visualization are :
-- be able to see in which category John is spending the most/the less
-- be able to track the evolution of John's spending other a year
-- be able to compare these results to the national data
+Visualize the spendings of a student (John) over several years.
+The 3 main goals of this visualization are:
 
+- to be able to see in which category John is spending the most/the least
+- to be able to track the evolution of John's spendings over a year
+- to be able to compare those results with national data and students'
 
 Visualiser les dépenses d'un étudiant (John) sur plusieurs années.
 Les 3 buts principaux de cette visualisation sont :
+
 - être capable de voir dans quel catégorie John dépense le plus/le moins
 - être capable de suivre l'évolution des dépenses de John au cours d'une année
-- être capable de comparer ces résultas avec les données nationales.
-
-
-
+- être capable de comparer ces résultas avec les données nationales et celles des étudiants.
