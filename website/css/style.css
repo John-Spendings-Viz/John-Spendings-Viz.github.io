@@ -305,6 +305,12 @@ body{
     color: white;
 }
 
+#about footer {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+}
+
 #home-john {
     padding-top: 5vh;
     padding-left: 10vw;
@@ -418,6 +424,7 @@ line{
 
 .main-container {
     display: flex;
+    justify-content: space-between;
 }
 
 .description-title {
