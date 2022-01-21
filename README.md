@@ -1,6 +1,6 @@
 # John's Spendings Visualization
 
-![thumbnail](C:\Users\Yann\Desktop\yann\Documents\Polytech\Cours\S9\Master IA\Dataviz\Projet\John-Spendings-Viz.github.io\thumbnail.png)
+![thumbnail](thumbnail.png)
 
 **Project done by**
 
@@ -22,6 +22,6 @@ The 3 main goals of this visualization are:
 Visualiser les dépenses d'un étudiant (John) sur plusieurs années.
 Les 3 buts principaux de cette visualisation sont :
 
-- être capable de voir dans quel catégorie John dépense le plus/le moins
+- être capable de voir dans quelle catégorie John dépense le plus/le moins
 - être capable de suivre l'évolution des dépenses de John au cours d'une année
-- être capable de comparer ces résultas avec les données nationales et celles des étudiants.
+- être capable de comparer ces résultats avec les données nationales et celles des étudiants.
