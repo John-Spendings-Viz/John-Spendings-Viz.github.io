@@ -375,15 +375,17 @@ line{
     stroke-width: 2;
 }
 
-.description-details-description {
-    display: flex;
+@media screen and (min-width: 900px) {
+    .description-details-description {
+        display: flex;
+    }
 }
 
 .description-details-description > * {
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 6px 6px 4px gray;
-    margin-right: 30px;
+    margin: 0 30px 20px 0;
     padding: 20px 10px 10px;
 }
 
