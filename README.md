@@ -2,7 +2,7 @@
 
 **Project made by**
 
-Yann ALLE, Aurélien BRESSON, Dane-Clovis BADIEL, Yohan MICHELLAND
+Yann ALLE, Aurélien BRESSON, Dane Clauvis BADIEL, Yohan MICHELLAND
 
 **In the context of**
 
