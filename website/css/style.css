@@ -1,4 +1,6 @@
 /* Style général */
+
+/** Import des polices **/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
 
@@ -16,20 +18,14 @@ body{
     min-height: 80vh;
 }
 
-#visualisations {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Navbar */
+/* Style de la Navbar */
 #navbar {
     width: 100%;
     height: var(--navbar-height);
     position: fixed;
     background: white;
     box-shadow: 0 1px 5px black;
-    z-index: 1;
+    z-index: 1; /* pour que la navbar ne soit pas transparente */
 }
 
 #navbar .navbar-items {
@@ -38,6 +34,15 @@ body{
     display: flex;
     justify-content: end;
     font-family: "Secular One";
+}
+
+#navbar .navbar-items > * {
+    margin-right: 10px;
+}
+
+#navbar .navbar-items * {
+    color: black;
+    text-decoration: none;
 }
 
 #navbar #navbar-title {
@@ -52,25 +57,20 @@ body{
     font-weight: 900;
 }
 
-#navbar .navbar-items > * {
-    margin-right: 10px;
-}
-
-#navbar .navbar-items * {
-    color: black;
-    text-decoration: none;
-}
-
 #navbar .navbar-items > *:hover:not(#navbar-title) {
     border-bottom: solid black 3px;
 }
 
+/* Style des visualisations */
+#visualisations {
+    position: relative;
+}
+
+/** Responsiveness **/
 @media screen and (max-width: 900px) {
     #visualisations {
-        display: flex;
-        justify-content: normal;
-        flex-direction: column;
         height: 200vh;
+        margin: 0 auto;
     }
 
     #histogram-container, #treemap-container {
@@ -82,13 +82,11 @@ body{
     #treemap{
         width: 100%;
         height: 60%;
-        margin: 0 auto;
     }
 
     #histogram{
         width: 90%;
         height: 75%;
-        margin: 0 auto;
     }
 
     #options > * {
@@ -124,12 +122,10 @@ body{
     }
 }
 
-
 @media screen and (min-width: 900px) {
     #visualisations {
         display: flex;
         justify-content: space-between;
-        flex-direction: row;
         height: 100vh;
     }
 
@@ -183,29 +179,32 @@ body{
     }
 }
 
-#visualisations {
-    position: relative;
-}
-
+/** Titre des visualisations **/
 .title {
     margin: 0 auto;
     text-align: center;
 }
 
 .title h1 {
-    padding-bottom: 1vh;
+    padding: 10px 10px 1vh;
     font-size: 2vw;
+    border: 2px dotted black;
 }
 
+/** Tooltip du treemap **/
 #tooltip {
     font-size: 10pt;
     font-family: "Verdana", serif;
     color: #222;
-    background-color: #fff;
+    background: #fff;
     padding: .5em;
     border-radius: 2px;
     opacity: 0.9;
     position: absolute;
+}
+
+#tooltip.hidden {
+    display: none;
 }
 
 #options {
@@ -253,11 +252,7 @@ body{
     color: white;
 }
 
-#tooltip ul {
-    list-style-type: none;
-    padding: 0;
-}
-
+/** Style du treemap **/
 #treemap {
     transition: all 0.5s;
     cursor: pointer;
@@ -275,42 +270,35 @@ body{
     opacity: 0.2 !important;
 }
 
+/* Le texte des rectangles est désormais survolable */
 #treemap g:hover rect:not(.category-selected) {
     stroke-width: 3px;
     opacity: 0.5 !important;
     transition: 0.5s;
 }
 
-#tooltip.hidden {
-    display: none;
-}
-
-.treemap-legend-category {
+/* Texte affiché dans les rectangle de la treemap */
+.treemap-legend-category, .treemap-legend-comparisons {
     fill: white;
     text-shadow: 2px 2px 2px black;
     text-anchor: middle;
 }
 
 .treemap-legend-comparisons {
-    fill: white;
-    text-shadow: 2px 2px 2px black;
-    text-anchor: middle;
     dominant-baseline: hanging;
 }
 
-/* Home */
+/** Histogramme **/
+
+/* Style des pages */
+/** Home **/
 #home, #about {
     display: flex;
     background: #282727;
     color: white;
 }
 
-#about footer {
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
-}
-
+/* Image de John */
 #home-john {
     padding-top: 4vh;
     padding-left: 10vw;
@@ -328,6 +316,7 @@ body{
     padding-bottom: 2.5vh;
 }
 
+/* Effet de soulignement sur le mot "optimiser" : on aurait bien aimé pouvoir l'animer d'où le code complexe suivant */
 #home-details-title em {
     font-style: normal;
     position: relative;
@@ -341,14 +330,7 @@ body{
     bottom: 0;
     background-color: blue;
     font-weight: bold;
-    transition: all 0.5s;
 }
-
-
-#home-details h2 {
-    padding-bottom: 20px;
-}
-
 
 #home-details-description {
     font-size: 1.6vw;
@@ -366,19 +348,13 @@ body{
     padding-bottom: 10px;
 }
 
-#about {
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-
-#about a {
-    color: white;
-}
-
-line{
-    stroke-dasharray: 4;
-    stroke: royalblue;
-    stroke-width: 2;
+/** Page de description des données **/
+.description-details-description > * {
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 6px 6px 4px gray;
+    margin: 0 30px 20px 0;
+    padding: 20px 10px 10px;
 }
 
 @media screen and (min-width: 900px) {
@@ -387,12 +363,23 @@ line{
     }
 }
 
-.description-details-description > * {
-    border: 2px solid black;
-    border-radius: 10px;
-    box-shadow: 6px 6px 4px gray;
-    margin: 0 30px 20px 0;
-    padding: 20px 10px 10px;
+.description-icon {
+    height: 50px;
+    width: 50px;
+    font-size: 15px;
+    border: black;
+    border-radius: 50%;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center; /* pour centrer verticalement l'icône */
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.description-title {
+    text-align: center;
 }
 
 .description-details-description ul {
@@ -407,31 +394,23 @@ line{
     font-size: 10pt;
 }
 
-.description-icon {
-    height: 50px;
-    width: 50px;
-    font-size: 15px;
-    border: black;
-    border-radius: 50%;
-    background: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    margin: 0 auto;
+/** Footer **/
+#about {
+    padding-left: 10px;
+    padding-bottom: 10px;
 }
 
-.main-container {
+#about footer {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+}
+
+#about a {
+    color: white;
+}
+
+footer .main-container {
     display: flex;
     justify-content: space-between;
-}
-
-.description-title {
-    text-align: center;
-}
-
-.title h1 {
-    padding: 10px;
-    border: 2px dotted black;
 }
