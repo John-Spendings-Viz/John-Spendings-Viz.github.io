@@ -290,6 +290,12 @@ body{
 
 /** Histogramme **/
 
+line {
+    stroke-dasharray: 4;
+    stroke: royalblue;
+    stroke-width: 2;
+}
+
 /* Style des pages */
 /** Home **/
 #home, #about {
