@@ -1,6 +1,7 @@
 const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
     "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
 
+/* Données importées */
 const expensesByPopFile = "data/expenses_by_population.csv"
 const johnExpensesFile = "data/john_expenses.csv"
 const totalCategoryName = "Total (euros)"
@@ -8,6 +9,7 @@ const totalCategoryName = "Total (euros)"
 let annualExpensesStudent = 0
 let annualExpensesFrench = 0
 
+/* Options par défaut */
 let currentYear = "all"
 let currentComparison = "student"
 let currentCategory = "all"
@@ -17,12 +19,13 @@ let treemapHeight = 0
 let histWidth = 0
 let histHeight = 0
 
+/* Échelle de couleurs pour le treemap et l'histogramme */
 let colorScale = d3
     .scaleQuantize()
     .domain([-0.7, 0.7])
     .range(["#d7191c", "#fdae61", "#f1f175", "#9dcc4d", "#1a9641"].reverse())
 
-let data = {}
+let data = {} // données utilisées pour l'histogramme et le treemap
 
 function parseDate(dateString) {
     let [dd, mm, yyyy] = dateString.split("/");
@@ -55,9 +58,11 @@ function updateSelectedComparison () {
 }
 
 function updateSelectedCategory (oldCategory) {
+    // Si on avait sélectionné une catégorie précédemment et qu'elle est différente de la catégorie actuelle
     if (oldCategory !== "all" && oldCategory !== currentCategory) {
         document.querySelector ("#treemap rect.category-selected").classList.remove ("category-selected")
     }
+    // Si on a désélectionné une catégorie sans en sélectionner une nouvelle
     if (currentCategory !== "all") {
         document.querySelector (`#treemap rect[category='${currentCategory}']`).classList.remove ("category-not-selected")
         document.querySelector (`#treemap rect[category='${currentCategory}']`).classList.add ("category-selected")

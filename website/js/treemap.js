@@ -1,3 +1,4 @@
+/* On calcule la taille des différents rectangles pour le treemap */
 function calculateTreeMap() {
     if (currentYear in data) {
         let root = d3.stratify()
@@ -15,8 +16,9 @@ function calculateTreeMap() {
     return undefined
 }
 
-function drawRectTreeMap(root)
-{
+/* Fonction de dessin du treemap (rectangles) */
+function drawRectTreeMap(root) {
+    /* Options définies par l'utilisateur via les boutons d'options */
     let proportionComparison = currentComparison === "student" ? "proportionStudent" : "proportionFrench"
     let expenses = currentComparison === "student" ? annualExpensesStudent:annualExpensesFrench
     expenses = currentYear === "all" ?expenses*(Object.keys(data).length-1):expenses
@@ -77,7 +79,7 @@ function drawLabelsTreeMap(root){
         .domain([0, d3.max(root, d => parseFloat(d.data.totalExpenses))])
         .range([8, 0.8*d3.max(root, d=> (d.x1-d.x0)/d3.max(root, d=> d.data.category.length))]);
 
-    // and to add the text labels
+    /* Affichage du nom de la catégorie */
     d3.select ("#treemap")
         .select ("svg")
         .selectAll("g")
@@ -103,22 +105,22 @@ function drawLabelsTreeMap(root){
         .text(d => {
             if (d.y1 - d.y0 > 3 * textScale(d.data.totalExpenses) && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0){
                 return d.data.category
-            }
-            else{
+            } else { // le texte ne rentre pas dans le rectangle
                 return ""
             }
         })
-        .attr("font-size", d=> textScale(d.data.totalExpenses))
+        .attr("font-size", d=> textScale(d.data.totalExpenses)) // on met à l'échelle le texte dans le rectangle
         .style("dominant-baseline", d=> d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)
                 && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0?"baseline":"middle")
         .on('end',  function(){ d3.select(this).style("opacity", "1"); })
 
+    /* Affichage des données numériques */
     d3.selectAll("g g")
         .data(root.leaves())
         .join("g")
         .append("text")
         .attr ("class", "treemap-legend-comparisons")
-        .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)    // +10 to adjust position (more right)
+        .attr("x", d => d.x0 + (d.x1 - d.x0) / 2)
         .attr("y", d => {
             if (d.y1 - d.y0 > 3* textScale(d.data.totalExpenses)
                 && 0.6*d.data.category.length*0.8*textScale(d.data.totalExpenses) <= d.x1-d.x0){
@@ -147,6 +149,7 @@ function drawLabelsTreeMap(root){
         .on('end',  function(){ d3.select(this).style("opacity", "1"); })
 }
 
+/* Fonction à appeler quand on veut redessiner tout le treemap */
 function updateTreeMap() {
     treemapWidth = parseFloat(d3.select("#treemap").style("width"))
     treemapHeight = parseFloat(d3.select("#treemap").style("height"))
